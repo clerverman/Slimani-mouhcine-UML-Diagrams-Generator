@@ -1,6 +1,6 @@
 package org.mql.java.main;
 
-import org.mql.java.classParser.ClassParser;
+import org.mql.java.classparser.ClassParser;
 import org.mql.java.reflection.PackageExplorer;
 import org.mql.java.reflection.ProjectExplorer;
 
@@ -20,7 +20,8 @@ public class Program {
 			System.out.println(p + " : ");
 			for (String item : classes) {
 				parser = new ClassParser(item);
-				System.out.println("\t\t"+parser.getInterfaces(parser.getMyClass()));
+				if(parser.isAnnotation())
+					System.out.println("\t\t"+parser.getMyClass());
 			}
 		 }
 	}

@@ -1,4 +1,4 @@
-package org.mql.java.classParser;
+package org.mql.java.classparser;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -164,7 +164,10 @@ public class ClassParser {
 	}
 
 	
-	
+	public boolean isAnnotation()
+	{
+		return myClass.isAnnotation();
+	}
 	
 	
 	public Class<?> getMyClass() {
