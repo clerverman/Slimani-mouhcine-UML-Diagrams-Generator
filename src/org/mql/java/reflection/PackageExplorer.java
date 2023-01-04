@@ -8,10 +8,8 @@ public class PackageExplorer {
 	public PackageExplorer() { 
 	} 
 	
-	public String[] getClassList(String packageName){
-		String classpath = System.getProperty("java.class.path");  
-		String packagePath = packageName.replace(".","/"); 
-		File dir = new File(classpath+"/"+packagePath); 
+	public String[] getPackageContent(String packageName){ ; 
+		File dir = new File(packageName); 
 		File f[] = dir.listFiles() ;
 		Vector<String> v = new Vector<>();
 		for(int i = 0 ; i<f.length ; i++)
@@ -19,7 +17,7 @@ public class PackageExplorer {
 			if(f[i].isFile() && f[i].getName().endsWith(".class"))
 			{
 				String name = f[i].getName().replace(".class", "");
-				v.add(packageName+"."+name);
+				v.add(name);
 			}
 		}
 		String t[] = new String[v.size()];
