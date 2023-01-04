@@ -6,20 +6,22 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 public class ClassParser {
-	
+
 	private StringBuffer classBody;
 	private Class<?> myClass;
-	private int methodsNumber ;
-	private int fieldsNumber ;
-	private String error = ""; 
+	private int methodsNumber;
+	private int fieldsNumber;
+	private String error = "";
+
 	public ClassParser(String className) {
 		try {
-			myClass = Class.forName(className); 
+			myClass = Class.forName(className);
 		} catch (Exception e) {
 			error = new String("Erreur : " + e.getMessage());
 		}
 	}
 
+	 
 	private String getModifier(int modifier) {
 		String modificator = null;
 		switch (modifier) {
@@ -44,9 +46,9 @@ public class ClassParser {
 		case Modifier.STATIC:
 			modificator = "static";
 			break;
-			default : 
-				modificator = "";
-				break ;
+		default:
+			modificator = "";
+			break;
 		}
 		return modificator;
 	}
@@ -55,20 +57,20 @@ public class ClassParser {
 		StringBuffer attributes = new StringBuffer();
 		Field[] fields = myClass.getDeclaredFields();
 		fieldsNumber = fields.length;
-		for (Field field : fields) {
-			attributes.append("\t"+field.getType() + " " + field.getName() + " ; \n");
-			
+		for (Field field : fields) { 
+			attributes.append("\t" + field.getType() + " " + field.getName() + " ; \n");
+
 		}
 		return attributes;
 	}
-	
+
 	public StringBuffer getMethods() {
 		StringBuffer methodes = new StringBuffer();
 		Method[] methods = myClass.getDeclaredMethods();
-		methodsNumber = methods.length ; 
+		methodsNumber = methods.length;
 		for (Method m : methods) {
 			Class<?> returnType = m.getReturnType();
-			methodes.append("\t"+getModifier(m.getModifiers()) + " " + returnType.getSimpleName() + " " + m.getName()
+			methodes.append("\t" + getModifier(m.getModifiers()) + " " + returnType.getSimpleName() + " " + m.getName()
 					+ " (" + getMethodParam(m) + ");\n");
 		}
 		return methodes;
@@ -87,35 +89,37 @@ public class ClassParser {
 	}
 
 	public StringBuffer getInternalClasses() {
-		StringBuffer internalClasses = new StringBuffer(); 
-		Class<?>[] classes = myClass.getDeclaredClasses(); 
-		for (Class<?> c : classes) { 
-			internalClasses.append("\t"+getModifier(c.getModifiers())+" "+c.getSimpleName()+" extends "+ c.getSuperclass().getSimpleName());
-			if(getInterfaces(c).length()>0)
-				internalClasses.append(" implements "+getInterfaces(c)+"{}\n");
-			else 
+		StringBuffer internalClasses = new StringBuffer();
+		Class<?>[] classes = myClass.getDeclaredClasses();
+		for (Class<?> c : classes) {
+			internalClasses.append("\t" + getModifier(c.getModifiers()) + " " + c.getSimpleName() + " extends "
+					+ c.getSuperclass().getSimpleName());
+			if (getInterfaces(c).length() > 0)
+				internalClasses.append(" implements " + getInterfaces(c) + "{}\n");
+			else
 				internalClasses.append("{}\n");
 		}
-		return internalClasses; 
+		return internalClasses;
 	}
 
-	public StringBuffer getInterfaces(Class<?> myClass) { 
+	public StringBuffer getInterfaces(Class<?> myClass) {
 		StringBuffer interfaces = new StringBuffer();
 		Class<?>[] superInterfaces = myClass.getInterfaces();
 		for (int i = 0; i < superInterfaces.length; i++) {
-			if(i < superInterfaces.length - 1)
-				interfaces.append(superInterfaces[i].getSimpleName()+" , ");
-			else 
+			if (i < superInterfaces.length - 1)
+				interfaces.append(superInterfaces[i].getSimpleName() + " , ");
+			else
 				interfaces.append(superInterfaces[i].getSimpleName());
-		} 
+		}
 		return interfaces;
 	}
 
 	public StringBuffer getConstructors() {
 		StringBuffer cons = new StringBuffer();
 		Constructor<?>[] constructors = myClass.getDeclaredConstructors();
-		for (Constructor<?> c : constructors) {  
-			cons.append("\t"+getModifier(c.getModifiers()) + " " + c.getName() + "("+getConstructorParam(c)+");\n");
+		for (Constructor<?> c : constructors) {
+			cons.append(
+					"\t" + getModifier(c.getModifiers()) + " " + c.getName() + "(" + getConstructorParam(c) + ");\n");
 		}
 		return cons;
 	}
@@ -124,26 +128,26 @@ public class ClassParser {
 		StringBuffer params = new StringBuffer();
 		Class<?>[] parameters = c.getParameterTypes();
 		for (int i = 0; i < parameters.length; i++) {
-			if (i < parameters.length - 1) 
-				params.append(parameters[i].getSimpleName()+" , "); 
-			else 
+			if (i < parameters.length - 1)
+				params.append(parameters[i].getSimpleName() + " , ");
+			else
 				params.append(parameters[i].getSimpleName());
 		}
 		return params;
 	}
 
-
-	public StringBuffer ownClassInf()
-	{
+	public StringBuffer ownClassInf() {
 		StringBuffer classHeader = new StringBuffer();
-		classHeader.append(getModifier(myClass.getModifiers())+" "+myClass.getSimpleName()+" extends "+myClass.getSuperclass().getSimpleName());
-		if(getInterfaces(myClass).length()>0)
-			classHeader.append(" implements "+getInterfaces(myClass));
-		return classHeader ;
+		if (myClass.getSuperclass() != null || myClass !=null) {
+			classHeader.append(getModifier(myClass.getModifiers()) + " " + myClass.getSimpleName() + " extends "
+					+ myClass.getSuperclass().getSimpleName());
+			if (getInterfaces(myClass).length() > 0)
+				classHeader.append(" implements " + getInterfaces(myClass));
+		}
+		return classHeader;
 	}
-	
-	public StringBuffer generateClassContent()
-	{
+
+	public StringBuffer generateClassContent() {
 		classBody = new StringBuffer();
 		classBody.append(ownClassInf());
 		classBody.append("\n{\n");
@@ -163,13 +167,21 @@ public class ClassParser {
 		return fieldsNumber;
 	}
 
-	
-	public boolean isAnnotation()
-	{
+	public boolean isAnnotation() {
 		return myClass.isAnnotation();
 	}
 	
+	public boolean isInterface()
+	{
+		return myClass.isInterface() ; 
+	}
 	
+	public boolean isEnumeration () {
+		return myClass.isEnum();
+	}
+	
+	
+
 	public Class<?> getMyClass() {
 		return myClass;
 	}

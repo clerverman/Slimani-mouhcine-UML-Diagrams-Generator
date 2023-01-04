@@ -1,6 +1,7 @@
 package org.mql.java.reflection;
 
-import java.io.File; 
+import java.io.File;
+import java.util.Comparator;
 import java.util.List; 
 import java.util.Vector;
 
@@ -83,22 +84,27 @@ public class ProjectExplorer {
 		RecursivePackage(arr, ++index, level, packages);
 	}
 
-	public List<String> getPackages() {
-		return packages;
-	}
-
-	public Vector<String> getPack(String name) {
-		Vector<String> pack = new Vector<String>();
-		File dir = new File(fullProjectPath + "/" + name);
+	public Vector<String> getPackageContent(String name) {
+		Vector<String> packContent = new Vector<String>();
+		if(name.contains("."))
+			name = name.replace(".","/"); 
+		File dir = new File(fullProjectPath + "/" +name);
 		File f[] = dir.listFiles();
-		for (int i = 0; i < f.length; i++) {
-			if (f[i].isDirectory())
-				pack.add(f[i].getName());
-		}
-		return pack;
+		if(f != null)
+			for (int i = 0; i < f.length; i++) { 
+				packContent.add(f[i].getName());
+			} 
+		return packContent;
 	}
 
+	public String getAbsolutePath(String name)
+	{
+		if(name.contains("."))
+			name = name.replace(".","/");
+		return fullProjectPath+"/"+name;
+	}
 	
+	// get all packages exist : tree
 	public List<String> getPackagesTree()
 	{
 		StringBuffer s = new StringBuffer() ; 
@@ -115,6 +121,15 @@ public class ProjectExplorer {
 			packageList.add(s.toString()); 
 			s = new StringBuffer() ;
 		}
+		packageList.sort(new Comparator<String>() {
+
+			@Override
+			public int compare(String s1, String s2) {
+				return s1.compareTo(s2);
+			}
+		});
+		//System.out.println(packageList);
+		//System.exit(0);
 		return packageList;
 	}
 	

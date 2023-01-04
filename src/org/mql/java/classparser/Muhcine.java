@@ -1,5 +1,5 @@
 package org.mql.java.classparser;
 
-public interface Test {
+public enum Muhcine {
 
 }

@@ -4,16 +4,17 @@ import java.io.File;
 import java.util.Vector;
 
 public class PackageExplorer {
-
-	public PackageExplorer() { 
+	private String packageName ;
+	public PackageExplorer(String packageName) { 
+		this.packageName = packageName;
 	} 
 	
-	public String[] getPackageContent(String packageName){ ; 
+	public String[] getPackageFiles(){ ; 
 		File dir = new File(packageName); 
 		File f[] = dir.listFiles() ;
 		Vector<String> v = new Vector<>();
 		for(int i = 0 ; i<f.length ; i++)
-		{
+		{ 
 			if(f[i].isFile() && f[i].getName().endsWith(".class"))
 			{
 				String name = f[i].getName().replace(".class", "");
