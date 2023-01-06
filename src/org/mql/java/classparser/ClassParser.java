@@ -57,7 +57,7 @@ public class ClassParser {
 		StringBuffer attributes = new StringBuffer();
 		Field[] fields = myClass.getDeclaredFields();
 		fieldsNumber = fields.length;
-		for (Field field : fields) { 
+		for (Field field : fields) {  
 			attributes.append("\t" + field.getType() + " " + field.getName() + " ; \n");
 
 		}

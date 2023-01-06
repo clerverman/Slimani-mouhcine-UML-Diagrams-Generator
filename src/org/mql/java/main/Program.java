@@ -53,22 +53,20 @@ public class Program {
 				for (String string : classes) {
 					System.out.println(item+" : "+string);
 					ClassParser parser = new ClassParser(item+"."+string);
-					System.out.println("isAnnotation : "+parser.getMyClass().isAnnotation()); 
-					System.out.println("isEnum : "+parser.getMyClass().isEnum());
-					System.out.println("isInterface : "+parser.getMyClass().isInterface());
-					System.out.println("###########");
+					if(parser.getMyClass().isAnnotation() || parser.getMyClass().isEnum() || parser.getMyClass().isInterface() )
+					{ 
+						System.out.println("isAnnotation : "+parser.getMyClass().isAnnotation()); 
+						System.out.println("isEnum : "+parser.getMyClass().isEnum());
+						System.out.println("isInterface : "+parser.getMyClass().isInterface());
+					}
+					else {
+						System.out.println("isClass : "+true); 
+					}
 					System.out.println("+++++++++++++++++++++++++ " + string +" : ");
-					System.out.println(parser.getFields());
-					
-					
-					
+					System.out.println(parser.getFields()); 
 				}
 				System.out.println("-----------");
-			}
-			else 
-			{
-				System.out.println("Pack is : "+item);
-			}
+			} 
 			 	//System.out.println("Package : "+item+" ----- Path absolute : "+project.getAbsolutePath(item));
 		} 
 	}

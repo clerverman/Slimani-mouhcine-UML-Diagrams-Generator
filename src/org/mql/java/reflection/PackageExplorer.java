@@ -26,4 +26,20 @@ public class PackageExplorer {
 		return t ;
 	}
 	
+	public String[] getPackageFolders(){ ; 
+	File dir = new File(packageName); 
+	File f[] = dir.listFiles() ;
+	Vector<String> v = new Vector<>();
+	for(int i = 0 ; i<f.length ; i++)
+	{ 
+		if(f[i].isDirectory())
+		{ 
+			v.add(f[i].getName());
+		}
+	}
+	String t[] = new String[v.size()];
+	v.toArray(t); 
+	return t ;
+}
+
 }
