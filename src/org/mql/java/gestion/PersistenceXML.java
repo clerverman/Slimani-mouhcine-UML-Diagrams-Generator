@@ -1,7 +1,5 @@
 package org.mql.java.gestion;
-
-import java.io.File;
-import java.io.FileInputStream;
+ 
 import java.io.FileWriter;
 
 public class PersistenceXML {
