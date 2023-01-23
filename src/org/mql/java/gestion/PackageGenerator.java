@@ -3,7 +3,7 @@ package org.mql.java.gestion;
 import java.util.List;
 import java.util.Vector;
 
-import org.mql.java.models.ClassContent;
+import org.mql.java.classparser.ClassParser; 
 import org.mql.java.models.PackageContent;
 import org.mql.java.reflection.PackageExplorer;
 import org.mql.java.reflection.ProjectExplorer;
@@ -25,8 +25,9 @@ public class PackageGenerator {
 				packageContent = new PackageContent() ; 
 				packageContent.setName(item);
 				for (String c : packageExplorer.getPackageFiles()) {
-					ClassGenerator classGenerator = new ClassGenerator(item, c); 
+					ClassGenerator classGenerator = new ClassGenerator(item, c);
 					packageContent.addClass(classGenerator.generateClass());
+					packageContent.setParser(classGenerator.getParser());
  				}
 				packages.add(packageContent);
  			}
@@ -76,7 +77,7 @@ public class PackageGenerator {
 		/*
 		 * 
 		 * 	<package name="">
-		 * 		<class/>
+		 * 		<class/> {*}
 		 * 	</package>
 		 * 
 		 */

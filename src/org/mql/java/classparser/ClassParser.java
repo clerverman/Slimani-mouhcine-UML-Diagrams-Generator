@@ -54,13 +54,13 @@ public class ClassParser {
 		
 		if(Modifier.isPublic(modifier) && Modifier.isStatic(modifier))
 			modificator = "public static" ; 
-		else if(Modifier.isPublic(modifier) && Modifier.isFinal(modifier))
+		if(Modifier.isPublic(modifier) && Modifier.isFinal(modifier))
 			modificator = "public final" ; 
-		else if(Modifier.isPublic(modifier) && Modifier.isAbstract(modifier))
+		if(Modifier.isPublic(modifier) && Modifier.isAbstract(modifier))
 			modificator = "public abstract" ; 
-		else if(Modifier.isPublic(modifier) && Modifier.isSynchronized(modifier))
+		if(Modifier.isPublic(modifier) && Modifier.isSynchronized(modifier))
 			modificator = "public synchronized" ; 
-		else if(Modifier.isPublic(modifier) && Modifier.isFinal(modifier) && Modifier.isStatic(modifier))
+		if(Modifier.isPublic(modifier) && Modifier.isFinal(modifier) && Modifier.isStatic(modifier))
 			modificator = "public static final" ;
 		return modificator;
 	}
@@ -124,12 +124,31 @@ public class ClassParser {
 		} 
 	}
 
-
-
+	public boolean isInterface()
+	{
+		return myClass.isInterface() ;
+	}
 	
+	public boolean isAnnotation()
+	{
+		return myClass.isAnnotation() ;
+	}
 	
+	public boolean isEnum()
+	{
+		return myClass.isEnum() ;
+	}
 	
+	public boolean isRecord()
+	{
+		return myClass.isRecord() ;
+	}
 	
+	public boolean isPrimitive()
+	{
+		return myClass.isPrimitive() ;
+	}
+ 
 	public StringBuffer getInternalClasses() {
 		StringBuffer internalClasses = new StringBuffer(); 
 		Class<?>[] classes = myClass.getDeclaredClasses(); 

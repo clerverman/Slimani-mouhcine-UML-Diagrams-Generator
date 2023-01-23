@@ -3,18 +3,20 @@ package org.mql.java.models;
 import java.util.List;
 import java.util.Vector;
 
+import org.mql.java.classparser.ClassParser;
+
 public class PackageContent {
 	private String name ; 
 	private List<ClassContent> classes ; 
-	
+	private ClassParser parser ; 
 	public PackageContent() {
 		classes = new Vector<ClassContent>() ; 
 	}
 
-	public PackageContent(String name, List<ClassContent> classes) {
-		this() ; 
+	public PackageContent(String name, List<ClassContent> classes,ClassParser parser) { 
 		this.name = name;
 		this.classes = classes;
+		this.parser = parser ; 
 	}
 	
 	public void addClass(ClassContent classContent)
@@ -82,13 +84,59 @@ public class PackageContent {
 	public StringBuffer packageXML()
 	{
 		StringBuffer a = new StringBuffer() ; 
-		a.append("\t\t\t<classes>\n");
+		a.append(startTag());
 		for (ClassContent classContent : classes) { 
 			a.append(classContent.toXML()+"\n"); 
 		}
-		a.append("\t\t\t</classes>\n");
+		a.append(endTag());
 		return a ;
 	}
+	
+	public StringBuffer startTag()
+	{
+		StringBuffer s = new StringBuffer() ; 
+		if(parser.isAnnotation()) 
+			s.append("\t\t\t<annotations>\n") ; 
+		else if(parser.isEnum()) 
+			s.append("\t\t\t<enums>\n") ; 
+		else if(parser.isRecord()) 
+			s.append("\t\t\t<records>\n") ; 
+		else if(parser.isPrimitive()) 
+			s.append("\t\t\t<primitives>\n") ;
+		else if(parser.isInterface()) 
+			s.append("\t\t\t<interfaces>\n") ;
+		else 
+			s.append("\t\t\t<classes>\n") ; 
+		return s ; 
+	}
+	
+	public StringBuffer endTag()
+	{
+		StringBuffer s = new StringBuffer() ; 
+		if(parser.isAnnotation()) 
+			s.append("\t\t\t</annotations>\n") ; 
+		else if(parser.isEnum()) 
+			s.append("\t\t\t</enums>\n") ; 
+		else if(parser.isRecord()) 
+			s.append("\t\t\t</records>\n") ; 
+		else if(parser.isPrimitive()) 
+			s.append("\t\t\t</primitives>\n") ;
+		else if(parser.isInterface()) 
+			s.append("\t\t\t</interfaces>\n") ;
+		else 
+			s.append("\t\t\t</classes>\n") ; 
+		return s ; 
+	}
+
+	public ClassParser getParser() {
+		return parser;
+	}
+
+	public void setParser(ClassParser parser) {
+		this.parser = parser;
+	}
+	
+	
 	
 	
 	
