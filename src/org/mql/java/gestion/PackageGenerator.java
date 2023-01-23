@@ -81,9 +81,10 @@ public class PackageGenerator {
 		 * 	</package>
 		 * 
 		 */
-		c.append("<projet name=\""+projectExplorer.getProjectName()+"\">\n");
+		c.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+		c.append("<project name=\""+projectExplorer.getProjectName()+"\">\n");
 		c.append(packagesXML());
-		c.append("</projet>");
+		c.append("</project>");
 		return c ; 
 	}
 	
