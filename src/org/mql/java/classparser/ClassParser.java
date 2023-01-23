@@ -13,8 +13,7 @@ import org.mql.java.models.ClassConstructor;
 import org.mql.java.models.ClassMethod;
 import org.mql.java.models.ParameterMethod; 
 
-public class ClassParser {
- 
+public class ClassParser {   
 	private Class<?> myClass; 
 	private List<ClassAttribute> attributes ; 
 	private List<ClassMethod> methodes ; 
@@ -34,33 +33,35 @@ public class ClassParser {
 	}
 
 	private String getModifier(int modifier) {
-		String modificator = null;
-		switch (modifier) {
-		case Modifier.PRIVATE:
-			modificator = "private";
-			break;
-		case Modifier.PROTECTED:
-			modificator = "protected";
-			break;
-		case Modifier.ABSTRACT:
-			modificator = "absctract";
-			break;
-		case Modifier.FINAL:
-			modificator = "final";
-			break;
-		case Modifier.PUBLIC:
-			modificator = "public";
-			break;
-		case Modifier.SYNCHRONIZED:
-			modificator = "synchronized";
-			break;
-		case Modifier.STATIC:
-			modificator = "static";
-			break;
-			default : 
-				modificator = "";
-				break ;
-		}
+		String modificator = null; 
+		if(Modifier.isPublic(modifier))
+			modificator = "public" ; 
+		else if(Modifier.isPrivate(modifier))
+			modificator = "private" ; 
+		else if(Modifier.isProtected(modifier))
+			modificator = "protected" ;
+		else if(Modifier.isAbstract(modifier))
+			modificator = "abstract" ;
+		else if(Modifier.isFinal(modifier))
+			modificator = "final" ; 
+		else if(Modifier.isPrivate(modifier))
+			modificator = "private" ; 
+		else if(Modifier.isSynchronized(modifier))
+			modificator = "synchronized" ; 
+		else if(Modifier.isStatic(modifier))
+			modificator = "static" ;  
+		
+		
+		if(Modifier.isPublic(modifier) && Modifier.isStatic(modifier))
+			modificator = "public static" ; 
+		else if(Modifier.isPublic(modifier) && Modifier.isFinal(modifier))
+			modificator = "public final" ; 
+		else if(Modifier.isPublic(modifier) && Modifier.isAbstract(modifier))
+			modificator = "public abstract" ; 
+		else if(Modifier.isPublic(modifier) && Modifier.isSynchronized(modifier))
+			modificator = "public synchronized" ; 
+		else if(Modifier.isPublic(modifier) && Modifier.isFinal(modifier) && Modifier.isStatic(modifier))
+			modificator = "public static final" ;
 		return modificator;
 	}
 

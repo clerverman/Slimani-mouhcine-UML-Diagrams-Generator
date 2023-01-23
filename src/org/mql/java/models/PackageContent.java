@@ -63,6 +63,33 @@ public class PackageContent {
 		return "PackageContent [name=" + name + ", classes=" + classes + "]";
 	}
 	
+	public StringBuffer toXML()
+	{
+		StringBuffer c = new StringBuffer() ;  
+		/*
+		 * 
+		 * 	<package name="">
+		 * 		<class/>
+		 * 	</package>
+		 * 
+		 */
+		c.append("\t\t<package name=\""+getName()+"\">\n");
+		c.append(packageXML());
+		c.append("\t\t</package>");
+		return c ; 
+	}
+	
+	public StringBuffer packageXML()
+	{
+		StringBuffer a = new StringBuffer() ; 
+		a.append("\t\t\t<classes>\n");
+		for (ClassContent classContent : classes) { 
+			a.append(classContent.toXML()+"\n"); 
+		}
+		a.append("\t\t\t</classes>\n");
+		return a ;
+	}
+	
 	
 	
 	

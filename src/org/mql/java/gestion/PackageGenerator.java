@@ -3,6 +3,7 @@ package org.mql.java.gestion;
 import java.util.List;
 import java.util.Vector;
 
+import org.mql.java.models.ClassContent;
 import org.mql.java.models.PackageContent;
 import org.mql.java.reflection.PackageExplorer;
 import org.mql.java.reflection.ProjectExplorer;
@@ -67,6 +68,33 @@ public class PackageGenerator {
 
 	public List<PackageContent> getPackages() {
 		return packages;
+	}
+	
+	public StringBuffer toXML()
+	{
+		StringBuffer c = new StringBuffer() ;  
+		/*
+		 * 
+		 * 	<package name="">
+		 * 		<class/>
+		 * 	</package>
+		 * 
+		 */
+		c.append("<projet name=\""+projectExplorer.getProjectName()+"\">\n");
+		c.append(packagesXML());
+		c.append("</projet>");
+		return c ; 
+	}
+	
+	public StringBuffer packagesXML()
+	{
+		StringBuffer a = new StringBuffer() ; 
+		a.append("\t<packages>\n");
+		for (PackageContent packageContent : packages) { 
+			a.append(packageContent.toXML()+"\n"); 
+		}
+		a.append("\t</packages>\n");
+		return a ;
 	}
 	
 	

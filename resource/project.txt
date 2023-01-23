@@ -1,4 +1,4 @@
-// exemples de structure de données d'un projet 
+// exemples de structure de donnï¿½es d'un projet 
 PackageGenerator [
     packages=[
         PackageContent [
