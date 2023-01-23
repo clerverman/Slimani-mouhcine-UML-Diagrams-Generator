@@ -9,9 +9,9 @@ public class PackageExplorer {
 		this.packageName = packageName;
 	} 
 	
-	public String[] getPackageFiles(){ ; 
-		File dir = new File(packageName); 
-		File f[] = dir.listFiles() ;
+	public String[] getPackageFiles(){ 
+		File dir = new File(packageName);  
+		File f[] = dir.listFiles() ; 
 		Vector<String> v = new Vector<>();
 		for(int i = 0 ; i<f.length ; i++)
 		{ 

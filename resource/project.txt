@@ -1,0 +1,225 @@
+// exemples de structure de données d'un projet 
+PackageGenerator [
+    packages=[
+        PackageContent [
+            name=org.mql.java.classparser, 
+            classes=[
+            	ClassContent [ 
+            		name=ClassParser, 
+            		attributes=[
+            			Attribute [name=myClass, modifier=private],
+            			Attribute [name=attributes, modifier=private], 
+            			Attribute [name=methodes, modifier=private], 
+            			Attribute [name=meth, modifier=private], 
+            			Attribute [name=constructors, modifier=private], 
+            			Attribute [name=cons, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.classparser.ClassParser, type=public, args=[Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=getInterfaces, modifier=public, returnType=StringBuffer, args=[Args [argName=Class, type=java.lang.Class]]], 
+            			ClassMethod [name=getFields, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=getMethods, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=getConstructors, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=getInternalClasses, modifier=public, returnType=StringBuffer, args=[]], 
+            			ClassMethod [name=getMethodParam, modifier=private, returnType=void, args=[Args [argName=Method, type=java.lang.reflect.Method]]], 
+            			ClassMethod [name=getModifier, modifier=private, returnType=String, args=[Args [argName=int, type=int]]], 
+            			ClassMethod [name=getConstructorParam, modifier=private, returnType=void, args=[Args [argName=Constructor, type=java.lang.reflect.Constructor]]]]]]], 
+        PackageContent [
+            name=org.mql.java.gestion, 
+            classes=[
+            	ClassContent [
+            		name=ClassGenerator, 
+            		attributes=[
+            			Attribute [name=packageName, modifier=private], 
+            			Attribute [name=ClassName, modifier=private], 
+            			Attribute [name=myClass, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.gestion.ClassGenerator, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.gestion.ClassGenerator, type=public, args=[Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]],
+            			ClassMethod [name=getPackageName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getClassName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setPackageName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setClassName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=generateClass, modifier=public, returnType=ClassContent, args=[]]]], 
+            	ClassContent [
+            		name=PackageGenerator, 
+            		attributes=[
+            			Attribute [name=packageContent, modifier=private], 
+            			Attribute [name=projectExplorer, modifier=private], 
+            			Attribute [name=packageExplorer, modifier=private], 
+            			Attribute [name=packages, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.gestion.PackageGenerator, type=public, args=[Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setPackages, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]]]]]], 
+        PackageContent [
+            name=org.mql.java.main, 
+            classes=[
+            	ClassContent [
+            		name=Program, 
+            		attributes=[], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.main.Program, type=public, args=[]]], 
+            		methods=[
+            			ClassMethod [name=main, modifier=, returnType=void, args=[Args [argName=String[], type=java.lang.String[]]]], 
+            			ClassMethod [name=ex01, modifier=private, returnType=void, args=[]]]]]], 
+        PackageContent [
+            name=org.mql.java.models, 
+            classes=[
+            	ClassContent [
+            		name=ClassAttribute, 
+            		attributes=[
+            			Attribute [name=name, modifier=private], 
+            			Attribute [name=modifier, modifier=private], 
+            			Attribute [name=type, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.models.ClassAttribute, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.models.ClassAttribute, type=public, args=[Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=getName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getType, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getModifier, modifier=public, returnType=String, args=[]],
+            			ClassMethod [name=setType, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setModifier, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]]]], 
+            	ClassContent [
+            		name=ClassConstructor, 
+            		attributes=[
+            			Attribute [name=name, modifier=private], 
+            			Attribute [name=type, modifier=private], 
+            			Attribute [name=args, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.models.ClassConstructor, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.models.ClassConstructor, type=public, args=[Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List]]]], 
+            		methods=[
+            			ClassMethod [name=getName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getType, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=addArgs, modifier=public, returnType=void, args=[Args [argName=ParameterMethod, type=org.mql.java.models.ParameterMethod]]], 
+            			ClassMethod [name=setType, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setArgs, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]], 
+            			ClassMethod [name=getArgs, modifier=public, returnType=List, args=[]]]], 
+            	ClassContent [
+            		name=ClassContent, 
+            		attributes=[
+            			Attribute [name=name, modifier=private], 
+            			Attribute [name=attributes, modifier=private], 
+            			Attribute [name=constructors, modifier=private], 
+            			Attribute [name=methods, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.models.ClassContent, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.models.ClassContent, type=public, args=[Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List]]]], 
+            		methods=[
+            			ClassMethod [name=getName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getMethods, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=getConstructors, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=setName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getAttributes, modifier=public, returnType=List, args=[]], ClassMethod [name=setMethods, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]], 
+            			ClassMethod [name=setAttributes, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]], 
+            			ClassMethod [name=setConstructors, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]]]], 
+            	ClassContent [
+            		name=ClassMethod, 
+            		attributes=[
+            			Attribute [name=name, modifier=private], 
+            			Attribute [name=modifier, modifier=private], 
+            			Attribute [name=returnType, modifier=private], 
+            			Attribute [name=args, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.models.ClassMethod, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.models.ClassMethod, type=public, args=[Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=getName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getReturnType, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getModifier, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setModifier, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=addArg, modifier=public, returnType=void, args=[Args [argName=ParameterMethod, type=org.mql.java.models.ParameterMethod]]], 
+            			ClassMethod [name=setReturnType, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setArgs, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]], 
+            			ClassMethod [name=getArgs, modifier=public, returnType=List, args=[]]]], 
+            	ClassContent [
+            		name=PackageContent, 
+            		attributes=[
+            			Attribute [name=name, modifier=private], 
+            			Attribute [name=classes, modifier=private]], 
+            			constructors=[
+            			ClassConstructor [name=org.mql.java.models.PackageContent, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.models.PackageContent, type=public, args=[Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List]]]], 
+            		methods=[
+            			ClassMethod [name=getName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=remove, modifier=public, returnType=boolean, args=[Args [argName=Object, type=java.lang.Object]]], 
+            			ClassMethod [name=remove, modifier=public, returnType=ClassContent, args=[Args [argName=int, type=int]]], 
+            			ClassMethod [name=get, modifier=public, returnType=ClassContent, args=[Args [argName=int, type=int]]], 
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=clear, modifier=public, returnType=void, args=[]], 
+            			ClassMethod [name=size, modifier=public, returnType=int, args=[]], 
+            			ClassMethod [name=getClasses, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=addClass, modifier=public, returnType=void, args=[Args [argName=ClassContent, type=org.mql.java.models.ClassContent]]], 
+            			ClassMethod [name=setName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setClasses, modifier=public, returnType=void, args=[Args [argName=List, type=java.util.List]]]]], 
+            	ClassContent [
+            		name=ParameterMethod, 
+            		attributes=[
+            			Attribute [name=argName, modifier=private], 
+            			Attribute [name=type, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.models.ParameterMethod, type=public, args=[]], 
+            			ClassConstructor [name=org.mql.java.models.ParameterMethod, type=public, args=[Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=toString, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getType, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=setType, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setArgName, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getArgName, modifier=public, returnType=String, args=[]]]]]], 
+        PackageContent [
+            name=org.mql.java.reflection, 
+            classes=[
+            	ClassContent [
+            		name=PackageExplorer, 
+            		attributes=[
+            			Attribute [name=packageName, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.reflection.PackageExplorer, type=public, args=[Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=getPackageFolders, modifier=public, returnType=String[], args=[]], 
+            			ClassMethod [name=getPackageFiles, modifier=public, returnType=String[], args=[]]]], 
+            	ClassContent [
+            		name=ProjectExplorer$1, 
+            		attributes=[Attribute [name=this$0, modifier=]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.reflection.ProjectExplorer$1, type=, args=[Args [argName=ProjectExplorer, type=org.mql.java.reflection.ProjectExplorer]]]], 
+            		methods=[
+            			ClassMethod [name=compare, modifier=public, returnType=int, args=[Args [argName=String, type=java.lang.String], Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=compare, modifier=, returnType=int, args=[Args [argName=Object, type=java.lang.Object], Args [argName=Object, type=java.lang.Object]]]]], 
+            	ClassContent [
+            		name=ProjectExplorer, 
+            		attributes=[
+            			Attribute [name=projectName, modifier=private], 
+            			Attribute [name=path, modifier=private], 
+            			Attribute [name=pathPart, modifier=private], 
+            			Attribute [name=fullProjectPath, modifier=private], 
+            			Attribute [name=projectPath, modifier=private], 
+            			Attribute [name=packages, modifier=private], 
+            			Attribute [name=line, modifier=private]], 
+            		constructors=[
+            			ClassConstructor [name=org.mql.java.reflection.ProjectExplorer, type=public, args=[Args [argName=String, type=java.lang.String]]]], 
+            		methods=[
+            			ClassMethod [name=getPath, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getAbsolutePath, modifier=public, returnType=String, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getProjectPackagesAndSubPackagesPath, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=getProjectSubPackages, modifier=public, returnType=List, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=setPath, modifier=public, returnType=void, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=getFullProjectPath, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getProjectName, modifier=public, returnType=String, args=[]], 
+            			ClassMethod [name=getPackageContent, modifier=public, returnType=Vector, args=[Args [argName=String, type=java.lang.String]]], 
+            			ClassMethod [name=RecursivePackage, modifier=private, returnType=void, args=[Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List], Args [argName=List, type=java.util.List]]], 
+            			ClassMethod [name=getProjectPackages, modifier=public, returnType=List, args=[]], 
+            			ClassMethod [name=isProjectExist, modifier=public, returnType=boolean, args=[]], 
+            			ClassMethod [name=getPackagesTree, modifier=public, returnType=List, args=[]]]]]]]]

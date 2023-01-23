@@ -17,7 +17,7 @@ public class ProjectExplorer {
 
 	public ProjectExplorer(String projectName) {
 		this.projectName = projectName;
-		path = System.getProperty("java.class.path");
+		path = System.getProperty("java.class.path"); 
 		pathPart = path.split("\\\\");
 		projectPath = pathPart[0] + "/" + pathPart[1];
 		if (isProjectExist())
