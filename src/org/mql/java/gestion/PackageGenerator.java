@@ -84,6 +84,7 @@ public class PackageGenerator {
 		c.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 		c.append("<project name=\""+projectExplorer.getProjectName()+"\">\n");
 		c.append(packagesXML());
+		c.append(relationsXML());
 		c.append("</project>");
 		return c ; 
 	}
@@ -97,6 +98,14 @@ public class PackageGenerator {
 		}
 		a.append("\t</packages>\n");
 		return a ;
+	}
+	
+	public StringBuffer relationsXML()
+	{
+		RelationShipsGenerator relationShipsGenerator = new RelationShipsGenerator(this);
+		RelationGenerator generator = new RelationGenerator() ; 
+		generator.setRelations(relationShipsGenerator.getRelations());  
+		return generator.toXML() ; 
 	}
 	
 	

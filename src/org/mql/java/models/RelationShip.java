@@ -5,7 +5,7 @@ public class RelationShip {
 	private String firstC ; // class ou package : on commence par celle-ci en lecture; 
 	private String secondC ; 
 	private String minVal = "1" ; 
-	private String maxVal = "1" ;  // multiplicité 
+	private String maxVal = "1" ;  // multiplicité les valeurs par défaut seront bénéfiques en relation d'association
 	private String type = ""; // type d'association : uni-directionnelle ou bi-directionnelle  entre firstClass et secondClass
 	
 	public RelationShip() {

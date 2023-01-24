@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mql.java.classparser.ClassParser;
+import org.mql.java.models.AssociationModel;
+import org.mql.java.models.ClassAttribute;
 import org.mql.java.models.ClassContent;
 import org.mql.java.models.PackageContent;
 import org.mql.java.models.RelationShip;
+import org.mql.java.relations.AssociationRelation;
 import org.mql.java.relations.ImplementationRelation;
 import org.mql.java.relations.InheritanceRelation;
 
@@ -17,14 +20,21 @@ public class RelationShipsGenerator {
 	private List<RelationShip> relations ; 
 	private ImplementationRelation impRelation  ;
 	private InheritanceRelation inheritance ; 
-	private RelationShip relationShip ; 
+	private RelationShip relationShip ;
+	private List<AssociationModel> associationModels ; 
+	private AssociationRelation associationRelation ; 
+	
 	public RelationShipsGenerator() {  
 		relations = new Vector<RelationShip>() ; 
+		associationModels = new Vector<AssociationModel>();
 	}
 	
 	public RelationShipsGenerator(PackageGenerator packageGenerator) {
 		this();
 		this.packageGenerator = packageGenerator ; 
+		generateImplementationRelation();
+		generateHeritageRelation();
+		generateAssociationRelation();
 	}
 
 	public PackageGenerator getPackageGenerator() {
@@ -63,6 +73,26 @@ public class RelationShipsGenerator {
 			}
 			addToRelations(inheritance.getRelations());
 		}
+	}
+	
+	public void generateAssociationRelation()
+	{
+		for (PackageContent pack : packageGenerator.getPackages() ) { 
+			for (ClassContent c : pack.getClasses()) { 
+				AssociationModel asso = new AssociationModel() ; 
+				asso.setClassName(pack.getName()+"."+c.getName());
+				for (ClassAttribute att : c.getAttributes()) { 
+					String multiplicite = "1" ; 
+					if(att.getGenericType().startsWith("java.util.List"))
+						multiplicite = "n" ; 
+					asso.setMultiplicity(multiplicite);
+					asso.addAttr(att); 
+				}
+				associationModels.add(asso);
+			}
+		}
+		associationRelation = new AssociationRelation(associationModels) ; 
+		addToRelations(associationRelation.getRelations());
 	}
 	
 	public void addToRelations(List<RelationShip> r)
