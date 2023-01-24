@@ -1,21 +1,23 @@
 package org.mql.java.models;
 
+import java.util.List;
+import java.util.Vector;
+
 public class AssociationModel {
 	private String className ; 
-	private String attrName ; 
-	private String attrType ; 
+	private List<ClassAttribute> attributes ; 
 	private String multiplicity = "1" ;
 	
 	public AssociationModel() {
 		// TODO Auto-generated constructor stub
+		attributes = new Vector<ClassAttribute>() ;
 	}
 
-	public AssociationModel(String className, String attrName ,String type, String multiplicity ) {
+	public AssociationModel(String className, List<ClassAttribute> attributes, String multiplicity ) {
 		super();
-		this.className = className;
-		this.attrType = type;
+		this.className = className; 
 		this.multiplicity = multiplicity;
-		this.attrName = attrName ; 
+		this.attributes = attributes ; 
 	}
 
 	public String getClassName() {
@@ -26,36 +28,12 @@ public class AssociationModel {
 		this.className = className;
 	}
 
-	public String getType() {
-		return attrType;
+	public List<ClassAttribute> getAttributes() {
+		return attributes;
 	}
 
-	public void setType(String type) {
-		this.attrType = type;
-	}
-
-	public String getMultiplicite() {
-		return multiplicity;
-	}
-
-	public void setMultiplicite(String multiplicity) {
-		this.multiplicity = multiplicity;
-	}
-
-	public String getAttrName() {
-		return attrName;
-	}
-
-	public void setAttrName(String attrName) {
-		this.attrName = attrName;
-	}
-
-	public String getAttrType() {
-		return attrType;
-	}
-
-	public void setAttrType(String attrType) {
-		this.attrType = attrType;
+	public void setAttributes(List<ClassAttribute> attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getMultiplicity() {
@@ -68,8 +46,14 @@ public class AssociationModel {
 
 	@Override
 	public String toString() {
-		return "AssociationModel [className=" + className + ", attrName=" + attrName + ", attrType=" + attrType
-				+ ", multiplicity=" + multiplicity + "]";
+		return "AssociationModel [className=" + className + ", attributes=" + attributes + ", multiplicity="
+				+ multiplicity + "]";
+	}
+
+	
+	public void addAttr(ClassAttribute attr)
+	{
+		attributes.add(attr);
 	}
 
 }

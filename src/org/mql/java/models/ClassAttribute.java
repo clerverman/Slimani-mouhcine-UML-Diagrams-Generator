@@ -2,12 +2,14 @@ package org.mql.java.models;
 
 import java.util.List;
 
+import org.mql.java.classparser.ClassParser;
+
 public class ClassAttribute {
 	private String name ; 
 	private String modifier ; // publi final/static ..
 	private String type ; 
 	private String genericType = "" ; 
-	
+	private List<ClassParser> parser ; // pour le test
 	public ClassAttribute() {
 		// TODO Auto-generated constructor stub
 	}

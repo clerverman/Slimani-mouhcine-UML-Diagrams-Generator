@@ -43,13 +43,18 @@ public class Program {
 			//System.out.println(pack.getName());
 			for (ClassContent c : pack.getClasses()) {
 				//System.out.println("\t"+c.getName()); 
+				AssociationModel asso = new AssociationModel() ; 
+				asso.setClassName(pack.getName()+"."+c.getName());
 				for (ClassAttribute att : c.getAttributes()) { 
 					String multiplicite = "1" ; 
 					if(att.getGenericType().startsWith("java.util.List"))
-						multiplicite = "n" ;  
-					associationModels.add(new AssociationModel(pack.getName()+"."+c.getName(), att.getName() ,att.getGenericType() , multiplicite ));
+						multiplicite = "n" ; 
+					asso.setMultiplicity(multiplicite);
+					asso.addAttr(att);
+					//associationModels.add(new AssociationModel(pack.getName()+"."+c.getName(), att.getName() ,att.getGenericType() , multiplicite ));
 					//System.out.println("\t\t"+att);
 				}
+				associationModels.add(asso);
 			}
 		}
 		// compare className and attrType : associationModels
@@ -61,11 +66,13 @@ public class Program {
 		RelationGenerator generator = new RelationGenerator() ; 
 		AssociationRelation associationRelation = new AssociationRelation(associationModels) ; 
 		associationRelation.getRelations(); 
+		/*
 		for (RelationShip r : associationRelation.getRelations()) {
 			System.out.println(r);
 		} 
-		//generator.setRelations(associationRelation.getRelations());
-		//System.out.println(generator.toXML());
+		*/
+		generator.setRelations(associationRelation.getRelations());
+		System.out.println(generator.toXML());
 	}
  	
 	private void ex02() {

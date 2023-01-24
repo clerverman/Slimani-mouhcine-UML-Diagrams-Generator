@@ -57,7 +57,7 @@ public class RelationGenerator {
 	{
 		StringBuffer a = new StringBuffer() ;  
 		for (RelationShip relationShip : relations) { 
-			a.append("\t\t\t<relation name=\""+relationShip.getName()+"\" firstc=\""+relationShip.getFirstC()+"\" secondc=\""+relationShip.getSecondC()+"\" minval=\""+relationShip.getMinVal()+"\" maxval=\""+relationShip.getMaxVal()+"\" />\n"); 
+			a.append("\t\t\t<relation name=\""+relationShip.getName()+"\" firstc=\""+relationShip.getFirstC()+"\" secondc=\""+relationShip.getSecondC()+"\" minval=\""+relationShip.getMinVal()+"\" maxval=\""+relationShip.getMaxVal()+"\" type=\""+relationShip.getType()+"\" />\n"); 
 		} 
 		return a ;
 	}

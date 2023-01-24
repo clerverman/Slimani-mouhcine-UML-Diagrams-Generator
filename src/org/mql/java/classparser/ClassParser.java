@@ -20,7 +20,7 @@ public class ClassParser {
 	private ClassMethod meth;
 	private List<ClassConstructor> constructors;
 	private ClassConstructor cons;
-	private TestClass test ; 
+	private TestClass test ; // pour le test
 	public ClassParser(String className) {
 		attributes = new Vector<ClassAttribute>();
 		methodes = new Vector<ClassMethod>();
