@@ -6,15 +6,18 @@ public class ClassAttribute {
 	private String name ; 
 	private String modifier ; // publi final/static ..
 	private String type ; 
+	private String genericType = "" ; 
 	
 	public ClassAttribute() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClassAttribute(String modifier, String type , String name) {
+	public ClassAttribute(String modifier, String type , String name , String genericType) {
 		super();
 		this.name = name;
 		this.modifier = modifier;
+		this.type = type ; 
+		this.genericType = genericType ; 
 	}
 
 	
@@ -43,9 +46,21 @@ public class ClassAttribute {
 		this.modifier = modifier;
 	}
 
+	public String getGenericType() {
+		return genericType;
+	}
+
+	public void setGenericType(String genericType) {
+		this.genericType = genericType;
+	}
+
 	@Override
 	public String toString() {
-		return "Attribute [name=" + name + ", modifier=" + modifier + "]";
+		return "ClassAttribute [name=" + name + ", modifier=" + modifier + ", type=" + type + ", genericType="
+				+ genericType + "]";
 	}
-	 
+
+	
+
+	
 }	

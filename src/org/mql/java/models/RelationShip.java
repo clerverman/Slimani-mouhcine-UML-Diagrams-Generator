@@ -2,22 +2,24 @@ package org.mql.java.models;
 
 public class RelationShip {
 	private String name ; 
-	private String firstC ; // class ou package ; 
+	private String firstC ; // class ou package : on commence par celle-ci en lecture; 
 	private String secondC ; 
-	private int minVal = 1 ; 
-	private int maxVal = 1 ;  // multiplicité 
+	private String minVal = "1" ; 
+	private String maxVal = "1" ;  // multiplicité 
+	private String type = ""; // type d'association : uni-directionnelle ou bi-directionnelle  entre firstClass et secondClass
 	
 	public RelationShip() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RelationShip(String name, String firstC, String secondC, int minVal, int maxVal) {
+	public RelationShip(String name, String firstC, String secondC, String minVal, String maxVal,String type) {
 		super();
 		this.name = name;
 		this.firstC = firstC;
 		this.secondC = secondC;
 		this.minVal = minVal;
 		this.maxVal = maxVal;
+		this.type = type;
 	}
 
 	public String getName() {
@@ -44,26 +46,34 @@ public class RelationShip {
 		this.secondC = secondC;
 	}
 
-	public int getMinVal() {
+	public String getMinVal() {
 		return minVal;
 	}
 
-	public void setMinVal(int minVal) {
+	public void setMinVal(String minVal) {
 		this.minVal = minVal;
 	}
 
-	public int getMaxVal() {
+	public String getMaxVal() {
 		return maxVal;
 	}
 
-	public void setMaxVal(int maxVal) {
+	public void setMaxVal(String maxVal) {
 		this.maxVal = maxVal;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
 	public String toString() {
 		return "RelationShip [name=" + name + ", firstC=" + firstC + ", secondC=" + secondC + ", minVal=" + minVal
-				+ ", maxVal=" + maxVal + "]";
+				+ ", maxVal=" + maxVal + ", type=" + type + "]";
 	}
  
 }

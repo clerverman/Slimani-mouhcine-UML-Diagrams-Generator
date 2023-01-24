@@ -36,6 +36,11 @@ public class RelationGenerator {
 		this.relations = relations;
 	}
 	
+	public void addToList(List<RelationShip> r)
+	{
+		relations.addAll(r);
+	}
+	
 	public StringBuffer toXML()
 	{
 		StringBuffer c = new StringBuffer() ;  
@@ -52,7 +57,7 @@ public class RelationGenerator {
 	{
 		StringBuffer a = new StringBuffer() ;  
 		for (RelationShip relationShip : relations) { 
-			a.append("<relation name=\""+relationShip.getName()+"\" firstc=\""+relationShip.getFirstC()+"\" secondc=\""+relationShip.getSecondC()+"\" minval=\""+relationShip.getMinVal()+"\" maxval=\""+relationShip.getMaxVal()+"\" >\n"); 
+			a.append("\t\t\t<relation name=\""+relationShip.getName()+"\" firstc=\""+relationShip.getFirstC()+"\" secondc=\""+relationShip.getSecondC()+"\" minval=\""+relationShip.getMinVal()+"\" maxval=\""+relationShip.getMaxVal()+"\" />\n"); 
 		} 
 		return a ;
 	}
