@@ -8,11 +8,9 @@ import org.mql.java.models.RelationShip;
 
 public class InheritanceRelation {
 
-	private List<RelationShip> relations ; 
-	private ClassParser parser ; 
-	public InheritanceRelation(ClassParser parser) {
-		relations = new Vector<RelationShip>(); 
-		this.parser = parser ; 
+	private List<RelationShip> relations ;  
+	public InheritanceRelation() {
+		relations = new Vector<RelationShip>();   
 	}
 	public List<RelationShip> getRelations() {
 		return relations;

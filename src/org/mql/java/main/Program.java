@@ -7,6 +7,7 @@ import org.mql.java.classparser.ClassParser;
 import org.mql.java.gestion.PackageGenerator;
 import org.mql.java.gestion.PersistenceXML;
 import org.mql.java.gestion.RelationGenerator;
+import org.mql.java.gestion.RelationShipsGenerator;
 import org.mql.java.models.AssociationModel;
 import org.mql.java.models.ClassAttribute;
 import org.mql.java.models.ClassContent;
@@ -21,8 +22,8 @@ public class Program {
 	 
 	public Program() {  
 		//ex01() ;
-		//ex02();
-		ex03();
+		ex02();
+		//ex03();
 	}
 
 	private void ex01() {  
@@ -76,23 +77,27 @@ public class Program {
 	}
  	
 	private void ex02() {
-		PackageGenerator packageGenerator = new PackageGenerator("Slimani-mouhcine-UML-Diagrams-Generator");
-		System.out.println(packageGenerator.getPackages().get(3).getClasses().get(0).getAttributes().size());
-		System.out.println("-----------------------------------------------------------------------");
-		System.out.println(packageGenerator.getPackages().get(5).getName()+"."+packageGenerator.getPackages().get(5).getClasses().get(1).getName());
+		PackageGenerator packageGenerator = new PackageGenerator("Slimani-mouhcine-UML-Diagrams-Generator");  
+		//System.out.println(packageGenerator.getPackages().get(5).getName()+"."+packageGenerator.getPackages().get(5).getClasses().get(1).getName());
+		RelationShipsGenerator relationShipsGenerator = new RelationShipsGenerator(packageGenerator);
+		relationShipsGenerator.generateImplementationRelation();
+		relationShipsGenerator.generateHeritageRelation(); 
+		
+		RelationGenerator generator = new RelationGenerator() ; 
+		generator.setRelations(relationShipsGenerator.getRelations());  
+		System.out.println(generator.toXML());
+		
+		System.exit(0);
+		
 		ClassParser parser = new ClassParser(packageGenerator.getPackages().get(5).getName()+"."+packageGenerator.getPackages().get(5).getClasses().get(1).getName()) ;
 		ImplementationRelation imp = new ImplementationRelation(parser) ;
 		
-		RelationGenerator generator = new RelationGenerator() ; 
-		generator.setRelations(imp.getRelations());
-		//System.out.println(generator.toXML());
 		
 		RelationShip relationShip = new RelationShip() ; 
 		relationShip.setName("inheritance");
-		relationShip.setFirstC(parser.getMyClass().getName());
-		relationShip.setSecondC(parser.getParent()); 
+		relationShip.setFirstC(parser.getMyClass().getName()); 
 		
-		InheritanceRelation inheritance = new InheritanceRelation(parser) ;
+		InheritanceRelation inheritance = new InheritanceRelation() ;
 		inheritance.add(relationShip);
 		inheritance.add(relationShip);
 		inheritance.add(relationShip);

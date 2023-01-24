@@ -21,12 +21,14 @@ public class ClassParser {
 	private List<ClassConstructor> constructors;
 	private ClassConstructor cons;
 	private TestClass test ; // pour le test
+	private String className ; 
 	public ClassParser(String className) {
 		attributes = new Vector<ClassAttribute>();
 		methodes = new Vector<ClassMethod>();
 		constructors = new Vector<ClassConstructor>();
+		this.className = className;
 		try {
-			myClass = Class.forName(className);
+			myClass = Class.forName(this.className);
 		} catch (Exception e) {
 			System.out.println("Error : " + e.getMessage());
 		}
@@ -156,7 +158,7 @@ public class ClassParser {
 	
 	public String getParent()
 	{
-		return myClass.getSuperclass().getName();
+		return myClass.getSuperclass() != null ? myClass.getSuperclass().getName() : "no-parent";
 	}
 
 	public Class<?> getMyClass() {
@@ -166,6 +168,16 @@ public class ClassParser {
 	public void setMyClass(Class<?> myClass) {
 		this.myClass = myClass;
 	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+	
+	
 	
 	
 }

@@ -14,7 +14,7 @@ public class ImplementationRelation {
 		for (String item : parser.getInterfaces()) {
 			RelationShip relationShip = new RelationShip() ;
 			relationShip.setName("implementation");
-			relationShip.setFirstC(parser.getClass().getName());
+			relationShip.setFirstC(parser.getClassName());
 			relationShip.setSecondC(item); 
 			relations.add(relationShip);
 		} 
