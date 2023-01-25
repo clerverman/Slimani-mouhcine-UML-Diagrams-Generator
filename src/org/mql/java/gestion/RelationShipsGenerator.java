@@ -1,5 +1,6 @@
 package org.mql.java.gestion;
 
+import java.io.FileInputStream;
 import java.util.List;
 import java.util.Vector;
 
@@ -12,7 +13,12 @@ import org.mql.java.models.PackageModel;
 import org.mql.java.models.RelationShip;
 import org.mql.java.relations.AssociationRelation;
 import org.mql.java.relations.ImplementationRelation;
+import org.mql.java.relations.ImportRelation;
 import org.mql.java.relations.InheritanceRelation;
+
+import japa.parser.JavaParser;
+import japa.parser.ast.CompilationUnit;
+import japa.parser.ast.ImportDeclaration;
 
 public class RelationShipsGenerator {
 
@@ -24,20 +30,22 @@ public class RelationShipsGenerator {
 	private RelationShip relationShip;
 	private List<AssociationModel> associationModels;
 	private AssociationRelation associationRelation;
-	private List<PackageModel> packageModels;
+	private List<PackageModel> packages;
+	private ImportRelation importRelation;
 
 	public RelationShipsGenerator() {
 		relations = new Vector<RelationShip>();
 		associationModels = new Vector<AssociationModel>();
-		packageModels = new Vector<PackageModel>();
+		packages = new Vector<PackageModel>();
+
 	}
 
 	public RelationShipsGenerator(PackageGenerator packageGenerator) {
 		this();
 		this.packageGenerator = packageGenerator;
-		// generateImplementationRelation();
-		// generateHeritageRelation();
-		// generateAssociationRelation();
+		generateImplementationRelation();
+		generateHeritageRelation();
+		generateAssociationRelation();
 		generateImportRelation();
 	}
 
@@ -97,41 +105,43 @@ public class RelationShipsGenerator {
 	}
 
 	public void generateImportRelation() {
+		String projectPath = packageGenerator.getProjectExplorer().getProjectPath();
+		PackageModel m = null;
 		for (PackageContent packageContent : packageGenerator.getPackages()) {
 			for (ClassContent c : packageContent.getClasses()) {
-				PackageModel packageModel = new PackageModel();
-				packageModel.setName(packageContent.getName());
-				packageModel.setAttributes(c.getAttributes());
-				packageModels.add(packageModel);
-			}
-		}
-
-		for (int i = 0; i < packageModels.size(); i++) {
-			isImoprted(i);
-		}
-	}
-
-	public void isImoprted(int packIndex) {
-		for (int i = 0; i < packageModels.get(packIndex).getAttributes().size() ;i++) {
-			String typ = packageModels.get(packIndex).getAttributes().get(i).getGenericType().startsWith("java.util.List")
-					? packageModels.get(packIndex).getAttributes().get(i).getGenericType().substring(15, packageModels.get(packIndex).getAttributes().get(i).getGenericType().length() - 1)
-					: packageModels.get(packIndex).getAttributes().get(i).getGenericType();
-			for (int j = 0; j < packageModels.size(); j++) {
-				if(j != packIndex)
-				{
-					for (int l = 0; l < packageModels.get(j).getAttributes().size(); l++) {
-						String type = packageModels.get(j).getAttributes().get(l).getGenericType().startsWith("java.util.List")
-								? packageModels.get(j).getAttributes().get(l).getGenericType().substring(15, packageModels.get(j).getAttributes().get(l).getGenericType().length() - 1)
-								: packageModels.get(j).getAttributes().get(l).getGenericType();
-						if(type.equals(typ))
-						{
-							System.out.println(packageModels.get(packIndex).getName()+"\n\t"+packageModels.get(j).getName());
-							break ; 
+				String name = projectPath + "/" + packageContent.getName().replace(".", "/") + "/" + c.getName()
+						+ ".java";
+				FileInputStream in;
+				try {
+					in = new FileInputStream(name);
+					CompilationUnit cu = JavaParser.parse(in);
+					List<ImportDeclaration> imports = cu.getImports();
+					if (imports.size() > 0) {
+						for (ImportDeclaration anImport : imports) {
+							m = new PackageModel();
+							m.setName(packageContent.getName());
+							m.add(anImport.getName() + "");
+							packages.add(m);
 						}
 					}
+				} catch (Exception e) {
 				}
 			}
 		}
+
+		importRelation = new ImportRelation();
+		for (PackageModel p : packages) {
+			for (String s : p.getPackages()) {
+				relationShip = new RelationShip();
+				relationShip.setName("import");
+				relationShip.setFirstC(p.getName());
+				relationShip.setSecondC(s);
+				importRelation.add(relationShip);
+			}
+		}
+
+		addToRelations(importRelation.getRelations());
+
 	}
 
 	public void addToRelations(List<RelationShip> r) {

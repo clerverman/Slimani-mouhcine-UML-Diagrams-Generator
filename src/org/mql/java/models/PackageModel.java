@@ -5,10 +5,10 @@ import java.util.Vector;
 
 public class PackageModel {
 	private String name ; 
-	private List<ClassAttribute> attributes ; 
+	private List<String> packages ; 
 	
 	public PackageModel() {
-		attributes = new Vector<ClassAttribute>() ; 
+		packages = new Vector<String>() ; 
 	}
 
 	public String getName() {
@@ -19,16 +19,21 @@ public class PackageModel {
 		this.name = name;
 	}
 
-	public List<ClassAttribute> getAttributes() {
-		return attributes;
+	public List<String> getPackages() {
+		return packages;
 	}
 
-	public void setAttributes(List<ClassAttribute> attributes) {
-		this.attributes = attributes;
+	public void setPackages(List<String> packages) {
+		this.packages = packages;
+	}
+	
+	public void add(String importedPack)
+	{
+		packages.add(importedPack);
 	}
 
 	@Override
 	public String toString() {
-		return "PackageModel [name=" + name + ",  attributes=" + attributes + "]";
+		return "PackageModel [name=" + name + ",  packages=" + packages + "]";
 	}
 }

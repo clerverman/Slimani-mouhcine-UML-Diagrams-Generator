@@ -13,15 +13,17 @@ public class ProjectExplorer {
 	private String fullProjectPath;
 	private String projectPath;
 	private List<String> packages; 
-	private String line = "";
-
+	private String line = "" ;
+	private String myProjectPath ; 
 	public ProjectExplorer(String projectName) {
 		this.projectName = projectName;
 		path = System.getProperty("java.class.path"); 
 		pathPart = path.split("\\\\");
 		projectPath = pathPart[0] + "/" + pathPart[1];
-		if (isProjectExist())
+		if (isProjectExist()) {
 			this.fullProjectPath = projectPath + "/" + projectName + "/bin";
+			myProjectPath = projectPath+"/"+projectName + "/src" ;
+		}
 	}
 
 	public boolean isProjectExist() {
@@ -149,4 +151,13 @@ public class ProjectExplorer {
 		this.path = path;
 	}
 
+	public String getProjectPath() {
+		return myProjectPath;
+	}
+
+	public void setProjectPath(String myProjectPath) {
+		this.myProjectPath = myProjectPath;
+	}
+
+	
 }
