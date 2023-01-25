@@ -1,86 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <!-- Les méthodes -->
+    
+    <!-- same elements -->
+    <xsd:group name="elementsSame">
+        <xsd:sequence>
+            <xsd:element ref="attributes"></xsd:element>
+            <xsd:element ref="constructors"></xsd:element>
+            <xsd:element ref="methods"></xsd:element>
+        </xsd:sequence>
+    </xsd:group>
+    
+    <!-- methods -->
     <xsd:element name="method" type="methodType"></xsd:element>
-    <xsd:element name="methods" type="methodsType"></xsd:element>
     <xsd:complexType name="methodType">
-        <xsd:attribute name="name" type="xsd:string" use="required" ></xsd:attribute>
-        <xsd:attribute name="modifier" type="xsd:string" use="required" ></xsd:attribute>
-        <xsd:attribute name="return-type" type="xsd:string" use="required" ></xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+        <xsd:attribute name="modifier" type="xsd:string" use="required"> </xsd:attribute>
+        <xsd:attribute name="return-type" type="xsd:string" use="required"> </xsd:attribute>
     </xsd:complexType>
+    <xsd:element name="methods" type="methodsType"></xsd:element>
     <xsd:complexType name="methodsType">
         <xsd:sequence>
             <xsd:element ref="method" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     
-    <!-- Les attributs : <attribute name="myClass" type="class java.lang.Class" modifier="private"/> -->
+    <!-- attributes --> 
     <xsd:element name="attribute" type="attributeType"></xsd:element>
-    <xsd:element name="attributes" type="attributesType"></xsd:element>
     <xsd:complexType name="attributeType">
-        <xsd:attribute name="name" type="xsd:string" use="required" ></xsd:attribute>
-        <xsd:attribute name="modifier" type="modifierType" use="required" ></xsd:attribute>
-        <xsd:attribute name="type" type="xsd:string" use="required" ></xsd:attribute>
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+        <xsd:attribute name="modifier" type="xsd:string" use="required"> </xsd:attribute>
+        <xsd:attribute name="type" type="xsd:string" use="required"> </xsd:attribute>
     </xsd:complexType>
-    <xsd:simpleType name="modifierType">
-        <xsd:restriction base="xsd:string">
-            <xsd:pattern value="public|protected|private"></xsd:pattern>
-        </xsd:restriction>
-    </xsd:simpleType>
+    <xsd:element name="attributes" type="attributesType"></xsd:element>
     <xsd:complexType name="attributesType">
         <xsd:sequence>
             <xsd:element ref="attribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     
-    <!-- Les constructeurs -->
-    
+    <!-- constructors --> 
     <xsd:element name="constructor" type="constructorType"></xsd:element>
-    <xsd:element name="constructors" type="constructorsType"></xsd:element>
     <xsd:complexType name="constructorType">
-        <xsd:attribute name="name" type="xsd:string" use="required" ></xsd:attribute>
-        <xsd:attribute name="modifier" type="conModifierType" use="required" ></xsd:attribute> 
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+        <xsd:attribute name="modifier" type="modifierType" use="optional" default="public"> </xsd:attribute> 
     </xsd:complexType>
-    <xsd:simpleType name="conModifierType">
+    <xsd:simpleType name="modifierType">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="public"></xsd:pattern>
         </xsd:restriction>
     </xsd:simpleType>
+    <xsd:element name="constructors" type="constructorsType"></xsd:element>
     <xsd:complexType name="constructorsType">
         <xsd:sequence>
-            <xsd:element ref="constructor" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+            <xsd:element ref="constructor" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     
-    <!-- Les classes -->
-    <xsd:element name="class" type="classType"></xsd:element>
-    <xsd:complexType name="classType">
-        <xsd:sequence>
-            <xsd:element ref="attributes"></xsd:element>
-            <xsd:element ref="constructors"></xsd:element>
-            <xsd:element ref="methods"></xsd:element>
-        </xsd:sequence>
-        <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
-    </xsd:complexType>
-    <xsd:element name="classes" type="classesType"></xsd:element>
-    <xsd:complexType name="classesType">
-        <xsd:sequence>
-            <xsd:element ref="class"></xsd:element> 
-        </xsd:sequence>
-    </xsd:complexType>
-    
-    <!-- les annotations -->
-    <xsd:element name="annotation" type="annotationType"></xsd:element>
-    <xsd:complexType name="annotationType">
-        <xsd:sequence> 
-            <xsd:element ref="methods"></xsd:element>
-        </xsd:sequence>
-        <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
-    </xsd:complexType>
+    <!-- annotations -->
     <xsd:element name="annotations" type="annotationsType"></xsd:element>
     <xsd:complexType name="annotationsType">
         <xsd:sequence>
-            <xsd:element ref="annotation"></xsd:element> 
+            <xsd:element ref="annotation" minOccurs="0" maxOccurs="unbounded"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+    <xsd:element name="annotation" type="annotationType"></xsd:element>
+    <xsd:complexType name="annotationType">
+        <xsd:sequence>
+            <xsd:element ref="methods"></xsd:element>
+        </xsd:sequence>
+         <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+    </xsd:complexType>  
+    
+    <!-- classes -->
+    <xsd:element name="classes" type="classesType"></xsd:element>
+    <xsd:complexType name="classesType">
+        <xsd:sequence>
+            <xsd:element ref="class" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="class" type="classType"></xsd:element>
+    <xsd:complexType name="classType">
+        <xsd:group ref="elementsSame"></xsd:group>
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+    </xsd:complexType>  
+    
+    
+    <!-- enums -->
+    <xsd:element name="enums" type="enumsType"></xsd:element>
+    <xsd:complexType name="enumsType">
+        <xsd:sequence>
+            <xsd:element ref="enum" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="enum" type="enumType"></xsd:element>
+    <xsd:complexType name="enumType">
+        <xsd:group ref="elementsSame"></xsd:group>
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+    </xsd:complexType>  
+    
+    <!-- interfaces -->
+    <xsd:element name="interfaces" type="interfacesType"></xsd:element>
+    <xsd:complexType name="interfacesType">
+        <xsd:sequence>
+            <xsd:element ref="interface" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="interface" type="interfaceType"></xsd:element>
+    <xsd:complexType name="interfaceType">
+        <xsd:sequence>
+            <xsd:element ref="attributes"></xsd:element> 
+            <xsd:element ref="methods"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+    </xsd:complexType>  
+    
+    <!-- packages -->
+    <xsd:element name="package" type="packageType"></xsd:element>
+    <xsd:complexType name="packageType">
+        <xsd:sequence>
+            <xsd:element ref="interfaces" minOccurs="0" maxOccurs="1"></xsd:element>
+            <xsd:element ref="classes" minOccurs="0" maxOccurs="1"></xsd:element>
+            <xsd:element ref="enums" minOccurs="0" maxOccurs="1"></xsd:element>
+            <xsd:element ref="annotations" minOccurs="0" maxOccurs="1"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"> </xsd:attribute>
+    </xsd:complexType>
+    <xsd:element name="packages" type="packagesType"></xsd:element>
+    <xsd:complexType name="packagesType">
+        <xsd:sequence>
+            <xsd:element ref="package" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- relations -->
+    <xsd:element name="relations" type="relationsType"></xsd:element>
+    <xsd:complexType name="relationsType">
+        <xsd:sequence>
+            <xsd:element ref="relation" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="relation" type="relationType"></xsd:element>
+    <xsd:complexType name="relationType">
+        <xsd:attribute name="name" use="required" type="xsd:string"></xsd:attribute>
+        <xsd:attribute name="firstc" use="required" type="xsd:string"></xsd:attribute>
+        <xsd:attribute name="secondc" use="required" type="xsd:string"></xsd:attribute>
+        <xsd:attribute name="minval" use="optional" type="valType"></xsd:attribute>
+        <xsd:attribute name="maxval" use="optional" type="valType"></xsd:attribute>
+        <xsd:attribute name="type" use="optional" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+    <xsd:simpleType name="valType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="0|1|n"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- project -->
+    <xsd:element name="project" type="projectType"></xsd:element>
+    <xsd:complexType name="projectType">
+        <xsd:sequence>
+            <xsd:element ref="packages"></xsd:element>
+            <xsd:element ref="relations"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+        
+    
 </xsd:schema>
