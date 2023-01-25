@@ -2,8 +2,7 @@ package org.mql.java.gestion;
 
 import java.util.List;
 import java.util.Vector;
-
-import org.mql.java.classparser.ClassParser; 
+  
 import org.mql.java.models.PackageContent;
 import org.mql.java.reflection.PackageExplorer;
 import org.mql.java.reflection.ProjectExplorer;

@@ -7,6 +7,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/javaparser-1.0.9.jar"/>
-	<classpathentry kind="lib" path="lib/asm-5.1.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
