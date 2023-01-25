@@ -39,12 +39,12 @@
 						<method name="getConstructors" modifier="public"  return-type="List" />
 						<method name="getParent" modifier="public"  return-type="String" />
 						<method name="getClassName" modifier="public"  return-type="String" />
-						<method name="getMyClass" modifier="public"  return-type="Class" />
 						<method name="setMyClass" modifier="public"  return-type="void" />
-						<method name="getConstructorParam" modifier="private"  return-type="void" />
 						<method name="setClassName" modifier="public"  return-type="void" />
+						<method name="getMyClass" modifier="public"  return-type="Class" />
 						<method name="getModifier" modifier="private"  return-type="String" />
 						<method name="getMethodParam" modifier="private"  return-type="void" />
+						<method name="getConstructorParam" modifier="private"  return-type="void" />
 					</methods>
 				</class>
 			</classes>
@@ -85,12 +85,12 @@
 						<method name="toString" modifier="public"  return-type="String" />
 						<method name="getPackageName" modifier="public"  return-type="String" />
 						<method name="getClassName" modifier="public"  return-type="String" />
-						<method name="setPackageName" modifier="public"  return-type="void" />
-						<method name="getMyClass" modifier="public"  return-type="ClassContent" />
-						<method name="setMyClass" modifier="public"  return-type="void" />
-						<method name="getParser" modifier="public"  return-type="ClassParser" />
 						<method name="generateClass" modifier="public"  return-type="ClassContent" />
+						<method name="getParser" modifier="public"  return-type="ClassParser" />
+						<method name="setMyClass" modifier="public"  return-type="void" />
 						<method name="setClassName" modifier="public"  return-type="void" />
+						<method name="getMyClass" modifier="public"  return-type="ClassContent" />
+						<method name="setPackageName" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="PackageGenerator">
@@ -106,16 +106,16 @@
 					<methods>
 						<method name="toString" modifier="public"  return-type="String" />
 						<method name="getPackages" modifier="public"  return-type="List" />
-						<method name="setPackages" modifier="public"  return-type="void" />
-						<method name="getPackageContent" modifier="public"  return-type="PackageContent" />
-						<method name="setProjectExplorer" modifier="public"  return-type="void" />
-						<method name="setPackageExplorer" modifier="public"  return-type="void" />
-						<method name="setPackageContent" modifier="public"  return-type="void" />
-						<method name="getProjectExplorer" modifier="public"  return-type="ProjectExplorer" />
-						<method name="relationsXML" modifier="public"  return-type="StringBuffer" />
-						<method name="packagesXML" modifier="public"  return-type="StringBuffer" />
-						<method name="getPackageExplorer" modifier="public"  return-type="PackageExplorer" />
 						<method name="toXML" modifier="public"  return-type="StringBuffer" />
+						<method name="setPackages" modifier="public"  return-type="void" />
+						<method name="getPackageExplorer" modifier="public"  return-type="PackageExplorer" />
+						<method name="packagesXML" modifier="public"  return-type="StringBuffer" />
+						<method name="setPackageContent" modifier="public"  return-type="void" />
+						<method name="relationsXML" modifier="public"  return-type="StringBuffer" />
+						<method name="setProjectExplorer" modifier="public"  return-type="void" />
+						<method name="getProjectExplorer" modifier="public"  return-type="ProjectExplorer" />
+						<method name="getPackageContent" modifier="public"  return-type="PackageContent" />
+						<method name="setPackageExplorer" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="PersistenceXML">
@@ -140,11 +140,11 @@
 					</constructors>
 					<methods>
 						<method name="toString" modifier="public"  return-type="String" />
-						<method name="addToList" modifier="public"  return-type="void" />
+						<method name="toXML" modifier="public"  return-type="StringBuffer" />
 						<method name="getRelations" modifier="public"  return-type="List" />
 						<method name="setRelations" modifier="public"  return-type="void" />
-						<method name="toXML" modifier="public"  return-type="StringBuffer" />
 						<method name="addRelation" modifier="public"  return-type="void" />
+						<method name="addToList" modifier="public"  return-type="void" />
 						<method name="relationXML" modifier="public"  return-type="StringBuffer" />
 					</methods>
 				</class>
@@ -166,14 +166,14 @@
 						<constructor name="org.mql.java.gestion.RelationShipsGenerator" modifier="public"/>
 					</constructors>
 					<methods>
+						<method name="getRelations" modifier="public"  return-type="List" />
+						<method name="setRelations" modifier="public"  return-type="void" />
 						<method name="generateImplementationRelation" modifier="public"  return-type="void" />
-						<method name="setPackageGenerator" modifier="public"  return-type="void" />
 						<method name="generateHeritageRelation" modifier="public"  return-type="void" />
 						<method name="generateAssociationRelation" modifier="public"  return-type="void" />
 						<method name="generateImportRelation" modifier="public"  return-type="void" />
+						<method name="setPackageGenerator" modifier="public"  return-type="void" />
 						<method name="getPackageGenerator" modifier="public"  return-type="PackageGenerator" />
-						<method name="getRelations" modifier="public"  return-type="List" />
-						<method name="setRelations" modifier="public"  return-type="void" />
 						<method name="addToRelations" modifier="public"  return-type="void" />
 					</methods>
 				</class>
@@ -203,10 +203,6 @@
 					<methods>
 						<method name="main" modifier="public static"  return-type="void" />
 						<method name="ex01" modifier="private"  return-type="void" />
-						<method name="ex05" modifier="private"  return-type="void" />
-						<method name="ex03" modifier="private"  return-type="void" />
-						<method name="ex04" modifier="private"  return-type="void" />
-						<method name="ex02" modifier="private"  return-type="void" />
 					</methods>
 				</class>
 				<class name="TestClass">
@@ -237,9 +233,9 @@
 						<method name="getAttributes" modifier="public"  return-type="List" />
 						<method name="getClassName" modifier="public"  return-type="String" />
 						<method name="setAttributes" modifier="public"  return-type="void" />
+						<method name="setClassName" modifier="public"  return-type="void" />
 						<method name="addAttr" modifier="public"  return-type="void" />
 						<method name="setMultiplicity" modifier="public"  return-type="void" />
-						<method name="setClassName" modifier="public"  return-type="void" />
 						<method name="getMultiplicity" modifier="public"  return-type="String" />
 					</methods>
 				</class>
@@ -262,9 +258,9 @@
 						<method name="getGenericType" modifier="public"  return-type="String" />
 						<method name="getType" modifier="public"  return-type="String" />
 						<method name="setGenericType" modifier="public"  return-type="void" />
-						<method name="setModifier" modifier="public"  return-type="void" />
 						<method name="setType" modifier="public"  return-type="void" />
 						<method name="getModifier" modifier="public"  return-type="String" />
+						<method name="setModifier" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="ClassConstructor">
@@ -307,15 +303,15 @@
 						<method name="getConstructors" modifier="public"  return-type="List" />
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="getAttributes" modifier="public"  return-type="List" />
-						<method name="constuctorXML" modifier="private"  return-type="StringBuffer" />
+						<method name="toXML" modifier="public"  return-type="StringBuffer" />
+						<method name="setParser" modifier="public"  return-type="void" />
+						<method name="getParser" modifier="public"  return-type="ClassParser" />
+						<method name="setMethods" modifier="public"  return-type="void" />
+						<method name="setAttributes" modifier="public"  return-type="void" />
 						<method name="attributesXML" modifier="private"  return-type="StringBuffer" />
 						<method name="methodXML" modifier="private"  return-type="StringBuffer" />
 						<method name="setConstructors" modifier="public"  return-type="void" />
-						<method name="setAttributes" modifier="public"  return-type="void" />
-						<method name="setMethods" modifier="public"  return-type="void" />
-						<method name="getParser" modifier="public"  return-type="ClassParser" />
-						<method name="setParser" modifier="public"  return-type="void" />
-						<method name="toXML" modifier="public"  return-type="StringBuffer" />
+						<method name="constuctorXML" modifier="private"  return-type="StringBuffer" />
 					</methods>
 				</class>
 				<class name="ClassMethod">
@@ -334,12 +330,12 @@
 						<method name="toString" modifier="public"  return-type="String" />
 						<method name="getReturnType" modifier="public"  return-type="String" />
 						<method name="setName" modifier="public"  return-type="void" />
-						<method name="setModifier" modifier="public"  return-type="void" />
 						<method name="getModifier" modifier="public"  return-type="String" />
 						<method name="setArgs" modifier="public"  return-type="void" />
+						<method name="addArg" modifier="public"  return-type="void" />
 						<method name="setReturnType" modifier="public"  return-type="void" />
 						<method name="getArgs" modifier="public"  return-type="List" />
-						<method name="addArg" modifier="public"  return-type="void" />
+						<method name="setModifier" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="PackageContent">
@@ -363,13 +359,13 @@
 						<method name="getClasses" modifier="public"  return-type="List" />
 						<method name="addClass" modifier="public"  return-type="void" />
 						<method name="setName" modifier="public"  return-type="void" />
+						<method name="toXML" modifier="public"  return-type="StringBuffer" />
+						<method name="setParser" modifier="public"  return-type="void" />
+						<method name="getParser" modifier="public"  return-type="ClassParser" />
+						<method name="setClasses" modifier="public"  return-type="void" />
 						<method name="startTag" modifier="public"  return-type="StringBuffer" />
 						<method name="endTag" modifier="public"  return-type="StringBuffer" />
 						<method name="packageXML" modifier="public"  return-type="StringBuffer" />
-						<method name="getParser" modifier="public"  return-type="ClassParser" />
-						<method name="setParser" modifier="public"  return-type="void" />
-						<method name="setClasses" modifier="public"  return-type="void" />
-						<method name="toXML" modifier="public"  return-type="StringBuffer" />
 					</methods>
 				</class>
 				<class name="PackageModel">
@@ -402,8 +398,8 @@
 						<method name="toString" modifier="public"  return-type="String" />
 						<method name="getType" modifier="public"  return-type="String" />
 						<method name="setType" modifier="public"  return-type="void" />
-						<method name="setArgName" modifier="public"  return-type="void" />
 						<method name="getArgName" modifier="public"  return-type="String" />
+						<method name="setArgName" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="RelationShip">
@@ -425,14 +421,14 @@
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="getType" modifier="public"  return-type="String" />
 						<method name="setType" modifier="public"  return-type="void" />
-						<method name="getMinVal" modifier="public"  return-type="String" />
-						<method name="setFirstC" modifier="public"  return-type="void" />
-						<method name="setSecondC" modifier="public"  return-type="void" />
-						<method name="setMinVal" modifier="public"  return-type="void" />
-						<method name="getSecondC" modifier="public"  return-type="String" />
-						<method name="getMaxVal" modifier="public"  return-type="String" />
-						<method name="setMaxVal" modifier="public"  return-type="void" />
 						<method name="getFirstC" modifier="public"  return-type="String" />
+						<method name="getSecondC" modifier="public"  return-type="String" />
+						<method name="setFirstC" modifier="public"  return-type="void" />
+						<method name="getMinVal" modifier="public"  return-type="String" />
+						<method name="setMinVal" modifier="public"  return-type="void" />
+						<method name="setMaxVal" modifier="public"  return-type="void" />
+						<method name="getMaxVal" modifier="public"  return-type="String" />
+						<method name="setSecondC" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 			</classes>
@@ -479,19 +475,19 @@
 					</constructors>
 					<methods>
 						<method name="getPath" modifier="public"  return-type="String" />
+						<method name="getProjectPackagesAndSubPackagesPath" modifier="public"  return-type="List" />
 						<method name="getAbsolutePath" modifier="public"  return-type="String" />
 						<method name="isProjectExist" modifier="public"  return-type="boolean" />
-						<method name="getPackageContent" modifier="public"  return-type="Vector" />
-						<method name="getProjectPackages" modifier="public"  return-type="List" />
-						<method name="getProjectName" modifier="public"  return-type="String" />
-						<method name="setPath" modifier="public"  return-type="void" />
-						<method name="setProjectPath" modifier="public"  return-type="void" />
-						<method name="getProjectPath" modifier="public"  return-type="String" />
-						<method name="RecursivePackage" modifier="private"  return-type="void" />
-						<method name="getProjectSubPackages" modifier="public"  return-type="List" />
-						<method name="getProjectPackagesAndSubPackagesPath" modifier="public"  return-type="List" />
 						<method name="getPackagesTree" modifier="public"  return-type="List" />
+						<method name="getProjectName" modifier="public"  return-type="String" />
+						<method name="getPackageContent" modifier="public"  return-type="Vector" />
 						<method name="getFullProjectPath" modifier="public"  return-type="String" />
+						<method name="getProjectPackages" modifier="public"  return-type="List" />
+						<method name="RecursivePackage" modifier="private"  return-type="void" />
+						<method name="getProjectPath" modifier="public"  return-type="String" />
+						<method name="setProjectPath" modifier="public"  return-type="void" />
+						<method name="setPath" modifier="public"  return-type="void" />
+						<method name="getProjectSubPackages" modifier="public"  return-type="List" />
 					</methods>
 				</class>
 			</classes>
@@ -508,11 +504,11 @@
 						<constructor name="org.mql.java.relations.AssociationRelation" modifier="public"/>
 					</constructors>
 					<methods>
+						<method name="getRelations" modifier="public"  return-type="List" />
 						<method name="getAssociationModels" modifier="public"  return-type="List" />
 						<method name="setAssociationModels" modifier="public"  return-type="void" />
-						<method name="getRelations" modifier="public"  return-type="List" />
-						<method name="associationType" modifier="public"  return-type="boolean" />
 						<method name="isInstanceOfClass" modifier="public"  return-type="AssociationModel" />
+						<method name="associationType" modifier="public"  return-type="boolean" />
 					</methods>
 				</class>
 				<class name="ImplementationRelation">
@@ -712,7 +708,6 @@
 		<relation name="import" firstc="org.mql.java.gestion" secondc="org.mql.java.models.ClassContent" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="java.util.Vector" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.gestion" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="org.mql.java.models.PackageContent" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="org.mql.java.reflection.PackageExplorer" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="org.mql.java.reflection.ProjectExplorer" minval="1" maxval="1" type="" />
@@ -737,33 +732,8 @@
 		<relation name="import" firstc="org.mql.java.gestion" secondc="japa.parser.JavaParser" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="japa.parser.ast.CompilationUnit" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.gestion" secondc="japa.parser.ast.ImportDeclaration" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="java.util.List" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="java.util.Vector" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.PackageGenerator" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.PersistenceXML" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.RelationGenerator" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.RelationShipsGenerator" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.AssociationModel" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.ClassAttribute" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.ClassContent" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.PackageContent" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.RelationShip" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.reflection.ProjectExplorer" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.relations.AssociationRelation" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.relations.ImplementationRelation" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.relations.InheritanceRelation" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="japa.parser.JavaParser" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="japa.parser.ParseException" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="japa.parser.ast.CompilationUnit" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="japa.parser.ast.ImportDeclaration" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="java.io.FileInputStream" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="java.io.FileNotFoundException" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="java.io.IOException" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.objectweb.asm.ClassReader" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.objectweb.asm.Opcodes" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.objectweb.asm.tree.ClassNode" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.main" secondc="org.objectweb.asm.tree.FieldNode" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.ClassGenerator" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.interfaces.Test" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.interfaces.TestTest" minval="1" maxval="1" type="" />
