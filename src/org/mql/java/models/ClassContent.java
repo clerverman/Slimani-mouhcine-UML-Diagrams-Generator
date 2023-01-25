@@ -21,6 +21,13 @@ public class ClassContent {
 		this.constructors = constructors;
 		this.parser = parser ; 
 	}
+	
+	public ClassContent(String name, List<ClassAttribute> attributes, List<ClassMethod> methods , List<ClassConstructor> constructors ) {
+		this.name = name;
+		this.attributes = attributes;
+		this.methods = methods;
+		this.constructors = constructors;
+	}
 
 	public String getName() {
 		return name;
@@ -76,7 +83,15 @@ public class ClassContent {
 		 * 		</methods>
 		 * </class>		
 		 */
-		if(parser.isAnnotation())
+		if (parser.isEnum())
+		{
+			c.append("\t\t\t\t<enum name=\""+getName()+"\">\n");
+			c.append(attributesXML());
+			c.append(constuctorXML());
+			c.append(methodXML());
+			c.append("\t\t\t\t</enum>");
+		}
+		else if(parser.isAnnotation())
 		{
 			c.append("\t\t\t\t<annotation name=\""+getName()+"\">\n"); 
 			c.append(methodXML());
@@ -95,7 +110,7 @@ public class ClassContent {
 		else if (parser.isPrimitive()) {
 			// n'est pas traité
 		} 
-		else { // si la file.java est enum , class , 
+		else {  
 			c.append("\t\t\t\t<class name=\""+getName()+"\">\n");
 			c.append(attributesXML());
 			c.append(constuctorXML());

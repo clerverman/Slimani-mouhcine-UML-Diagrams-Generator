@@ -19,6 +19,13 @@ public class PackageContent {
 		this.parser = parser ; 
 	}
 	
+	
+	public PackageContent(String name , List<ClassContent> classes )
+	{
+		this.name = name;
+		this.classes = classes;
+	}
+	
 	public void addClass(ClassContent classContent)
 	{
 		classes.add(classContent) ; 

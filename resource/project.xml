@@ -9,6 +9,11 @@
 						<method name="value" modifier="public abstract"  return-type="int" />
 					</methods>
 				</annotation>
+				<annotation name="TestTestTest">
+					<methods>
+						<method name="value" modifier="public abstract"  return-type="int" />
+					</methods>
+				</annotation>
 			</annotations>
 		</package>
 		<package name="org.mql.java.classparser">
@@ -39,19 +44,19 @@
 						<method name="getConstructors" modifier="public"  return-type="List" />
 						<method name="getParent" modifier="public"  return-type="String" />
 						<method name="getClassName" modifier="public"  return-type="String" />
-						<method name="setMyClass" modifier="public"  return-type="void" />
+						<method name="getConstructorParam" modifier="private"  return-type="void" />
 						<method name="setClassName" modifier="public"  return-type="void" />
 						<method name="getMyClass" modifier="public"  return-type="Class" />
+						<method name="setMyClass" modifier="public"  return-type="void" />
 						<method name="getModifier" modifier="private"  return-type="String" />
 						<method name="getMethodParam" modifier="private"  return-type="void" />
-						<method name="getConstructorParam" modifier="private"  return-type="void" />
 					</methods>
 				</class>
 			</classes>
 		</package>
 		<package name="org.mql.java.enums">
 			<enums>
-				<class name="Test">
+				<enum name="Test">
 					<attributes>
 						<attribute name="ADMIN" type="class org.mql.java.enums.Test" modifier="public static final"/>
 						<attribute name="STUDENT" type="class org.mql.java.enums.Test" modifier="public static final"/>
@@ -65,7 +70,7 @@
 						<method name="values" modifier="public static"  return-type="Test[]" />
 						<method name="valueOf" modifier="public static"  return-type="Test" />
 					</methods>
-				</class>
+				</enum>
 			</enums>
 		</package>
 		<package name="org.mql.java.gestion">
@@ -87,10 +92,10 @@
 						<method name="getClassName" modifier="public"  return-type="String" />
 						<method name="generateClass" modifier="public"  return-type="ClassContent" />
 						<method name="getParser" modifier="public"  return-type="ClassParser" />
-						<method name="setMyClass" modifier="public"  return-type="void" />
+						<method name="setPackageName" modifier="public"  return-type="void" />
 						<method name="setClassName" modifier="public"  return-type="void" />
 						<method name="getMyClass" modifier="public"  return-type="ClassContent" />
-						<method name="setPackageName" modifier="public"  return-type="void" />
+						<method name="setMyClass" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="PackageGenerator">
@@ -107,15 +112,15 @@
 						<method name="toString" modifier="public"  return-type="String" />
 						<method name="getPackages" modifier="public"  return-type="List" />
 						<method name="toXML" modifier="public"  return-type="StringBuffer" />
-						<method name="setPackages" modifier="public"  return-type="void" />
-						<method name="getPackageExplorer" modifier="public"  return-type="PackageExplorer" />
-						<method name="packagesXML" modifier="public"  return-type="StringBuffer" />
-						<method name="setPackageContent" modifier="public"  return-type="void" />
-						<method name="relationsXML" modifier="public"  return-type="StringBuffer" />
-						<method name="setProjectExplorer" modifier="public"  return-type="void" />
-						<method name="getProjectExplorer" modifier="public"  return-type="ProjectExplorer" />
 						<method name="getPackageContent" modifier="public"  return-type="PackageContent" />
 						<method name="setPackageExplorer" modifier="public"  return-type="void" />
+						<method name="relationsXML" modifier="public"  return-type="StringBuffer" />
+						<method name="getPackageExplorer" modifier="public"  return-type="PackageExplorer" />
+						<method name="packagesXML" modifier="public"  return-type="StringBuffer" />
+						<method name="setProjectExplorer" modifier="public"  return-type="void" />
+						<method name="setPackageContent" modifier="public"  return-type="void" />
+						<method name="getProjectExplorer" modifier="public"  return-type="ProjectExplorer" />
+						<method name="setPackages" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="PersistenceXML">
@@ -143,9 +148,9 @@
 						<method name="toXML" modifier="public"  return-type="StringBuffer" />
 						<method name="getRelations" modifier="public"  return-type="List" />
 						<method name="setRelations" modifier="public"  return-type="void" />
+						<method name="relationXML" modifier="public"  return-type="StringBuffer" />
 						<method name="addRelation" modifier="public"  return-type="void" />
 						<method name="addToList" modifier="public"  return-type="void" />
-						<method name="relationXML" modifier="public"  return-type="StringBuffer" />
 					</methods>
 				</class>
 				<class name="RelationShipsGenerator">
@@ -168,12 +173,12 @@
 					<methods>
 						<method name="getRelations" modifier="public"  return-type="List" />
 						<method name="setRelations" modifier="public"  return-type="void" />
+						<method name="generateImportRelation" modifier="public"  return-type="void" />
+						<method name="getPackageGenerator" modifier="public"  return-type="PackageGenerator" />
+						<method name="setPackageGenerator" modifier="public"  return-type="void" />
+						<method name="generateAssociationRelation" modifier="public"  return-type="void" />
 						<method name="generateImplementationRelation" modifier="public"  return-type="void" />
 						<method name="generateHeritageRelation" modifier="public"  return-type="void" />
-						<method name="generateAssociationRelation" modifier="public"  return-type="void" />
-						<method name="generateImportRelation" modifier="public"  return-type="void" />
-						<method name="setPackageGenerator" modifier="public"  return-type="void" />
-						<method name="getPackageGenerator" modifier="public"  return-type="PackageGenerator" />
 						<method name="addToRelations" modifier="public"  return-type="void" />
 					</methods>
 				</class>
@@ -203,6 +208,7 @@
 					<methods>
 						<method name="main" modifier="public static"  return-type="void" />
 						<method name="ex01" modifier="private"  return-type="void" />
+						<method name="ex02" modifier="private"  return-type="void" />
 					</methods>
 				</class>
 				<class name="TestClass">
@@ -218,6 +224,22 @@
 		</package>
 		<package name="org.mql.java.models">
 			<classes>
+				<class name="AnnotationContent">
+					<attributes>
+						<attribute name="name" type="class java.lang.String" modifier="private"/>
+						<attribute name="methods" type="interface java.util.List" modifier="private"/>
+					</attributes>
+					<constructors>
+						<constructor name="org.mql.java.models.AnnotationContent" modifier="public"/>
+					</constructors>
+					<methods>
+						<method name="getName" modifier="public"  return-type="String" />
+						<method name="toString" modifier="public"  return-type="String" />
+						<method name="getMethods" modifier="public"  return-type="List" />
+						<method name="setName" modifier="public"  return-type="void" />
+						<method name="setMethods" modifier="public"  return-type="void" />
+					</methods>
+				</class>
 				<class name="AssociationModel">
 					<attributes>
 						<attribute name="className" type="class java.lang.String" modifier="private"/>
@@ -234,8 +256,8 @@
 						<method name="getClassName" modifier="public"  return-type="String" />
 						<method name="setAttributes" modifier="public"  return-type="void" />
 						<method name="setClassName" modifier="public"  return-type="void" />
-						<method name="addAttr" modifier="public"  return-type="void" />
 						<method name="setMultiplicity" modifier="public"  return-type="void" />
+						<method name="addAttr" modifier="public"  return-type="void" />
 						<method name="getMultiplicity" modifier="public"  return-type="String" />
 					</methods>
 				</class>
@@ -257,10 +279,10 @@
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="getGenericType" modifier="public"  return-type="String" />
 						<method name="getType" modifier="public"  return-type="String" />
-						<method name="setGenericType" modifier="public"  return-type="void" />
-						<method name="setType" modifier="public"  return-type="void" />
 						<method name="getModifier" modifier="public"  return-type="String" />
+						<method name="setType" modifier="public"  return-type="void" />
 						<method name="setModifier" modifier="public"  return-type="void" />
+						<method name="setGenericType" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="ClassConstructor">
@@ -279,8 +301,8 @@
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="getType" modifier="public"  return-type="String" />
 						<method name="setType" modifier="public"  return-type="void" />
-						<method name="setArgs" modifier="public"  return-type="void" />
 						<method name="addArgs" modifier="public"  return-type="void" />
+						<method name="setArgs" modifier="public"  return-type="void" />
 						<method name="getArgs" modifier="public"  return-type="List" />
 					</methods>
 				</class>
@@ -295,6 +317,7 @@
 					<constructors>
 						<constructor name="org.mql.java.models.ClassContent" modifier="public"/>
 						<constructor name="org.mql.java.models.ClassContent" modifier="public"/>
+						<constructor name="org.mql.java.models.ClassContent" modifier="public"/>
 					</constructors>
 					<methods>
 						<method name="getName" modifier="public"  return-type="String" />
@@ -304,13 +327,13 @@
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="getAttributes" modifier="public"  return-type="List" />
 						<method name="toXML" modifier="public"  return-type="StringBuffer" />
-						<method name="setParser" modifier="public"  return-type="void" />
 						<method name="getParser" modifier="public"  return-type="ClassParser" />
-						<method name="setMethods" modifier="public"  return-type="void" />
+						<method name="setParser" modifier="public"  return-type="void" />
+						<method name="setConstructors" modifier="public"  return-type="void" />
 						<method name="setAttributes" modifier="public"  return-type="void" />
+						<method name="setMethods" modifier="public"  return-type="void" />
 						<method name="attributesXML" modifier="private"  return-type="StringBuffer" />
 						<method name="methodXML" modifier="private"  return-type="StringBuffer" />
-						<method name="setConstructors" modifier="public"  return-type="void" />
 						<method name="constuctorXML" modifier="private"  return-type="StringBuffer" />
 					</methods>
 				</class>
@@ -331,11 +354,52 @@
 						<method name="getReturnType" modifier="public"  return-type="String" />
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="getModifier" modifier="public"  return-type="String" />
-						<method name="setArgs" modifier="public"  return-type="void" />
-						<method name="addArg" modifier="public"  return-type="void" />
-						<method name="setReturnType" modifier="public"  return-type="void" />
-						<method name="getArgs" modifier="public"  return-type="List" />
 						<method name="setModifier" modifier="public"  return-type="void" />
+						<method name="setReturnType" modifier="public"  return-type="void" />
+						<method name="addArg" modifier="public"  return-type="void" />
+						<method name="setArgs" modifier="public"  return-type="void" />
+						<method name="getArgs" modifier="public"  return-type="List" />
+					</methods>
+				</class>
+				<class name="EnumContent">
+					<attributes>
+						<attribute name="name" type="class java.lang.String" modifier="private"/>
+						<attribute name="attributes" type="interface java.util.List" modifier="private"/>
+						<attribute name="contructors" type="interface java.util.List" modifier="private"/>
+						<attribute name="methods" type="interface java.util.List" modifier="private"/>
+					</attributes>
+					<constructors>
+						<constructor name="org.mql.java.models.EnumContent" modifier="public"/>
+					</constructors>
+					<methods>
+						<method name="getName" modifier="public"  return-type="String" />
+						<method name="toString" modifier="public"  return-type="String" />
+						<method name="getMethods" modifier="public"  return-type="List" />
+						<method name="setName" modifier="public"  return-type="void" />
+						<method name="getAttributes" modifier="public"  return-type="List" />
+						<method name="setAttributes" modifier="public"  return-type="void" />
+						<method name="setMethods" modifier="public"  return-type="void" />
+						<method name="setContructors" modifier="public"  return-type="void" />
+						<method name="getContructors" modifier="public"  return-type="List" />
+					</methods>
+				</class>
+				<class name="InterfaceContent">
+					<attributes>
+						<attribute name="name" type="class java.lang.String" modifier="private"/>
+						<attribute name="attributes" type="interface java.util.List" modifier="private"/>
+						<attribute name="methods" type="interface java.util.List" modifier="private"/>
+					</attributes>
+					<constructors>
+						<constructor name="org.mql.java.models.InterfaceContent" modifier="public"/>
+					</constructors>
+					<methods>
+						<method name="getName" modifier="public"  return-type="String" />
+						<method name="toString" modifier="public"  return-type="String" />
+						<method name="getMethods" modifier="public"  return-type="List" />
+						<method name="setName" modifier="public"  return-type="void" />
+						<method name="getAttributes" modifier="public"  return-type="List" />
+						<method name="setAttributes" modifier="public"  return-type="void" />
+						<method name="setMethods" modifier="public"  return-type="void" />
 					</methods>
 				</class>
 				<class name="PackageContent">
@@ -345,6 +409,7 @@
 						<attribute name="parser" type="class org.mql.java.classparser.ClassParser" modifier="private"/>
 					</attributes>
 					<constructors>
+						<constructor name="org.mql.java.models.PackageContent" modifier="public"/>
 						<constructor name="org.mql.java.models.PackageContent" modifier="public"/>
 						<constructor name="org.mql.java.models.PackageContent" modifier="public"/>
 					</constructors>
@@ -360,12 +425,12 @@
 						<method name="addClass" modifier="public"  return-type="void" />
 						<method name="setName" modifier="public"  return-type="void" />
 						<method name="toXML" modifier="public"  return-type="StringBuffer" />
-						<method name="setParser" modifier="public"  return-type="void" />
 						<method name="getParser" modifier="public"  return-type="ClassParser" />
+						<method name="setParser" modifier="public"  return-type="void" />
 						<method name="setClasses" modifier="public"  return-type="void" />
-						<method name="startTag" modifier="public"  return-type="StringBuffer" />
 						<method name="endTag" modifier="public"  return-type="StringBuffer" />
 						<method name="packageXML" modifier="public"  return-type="StringBuffer" />
+						<method name="startTag" modifier="public"  return-type="StringBuffer" />
 					</methods>
 				</class>
 				<class name="PackageModel">
@@ -398,8 +463,8 @@
 						<method name="toString" modifier="public"  return-type="String" />
 						<method name="getType" modifier="public"  return-type="String" />
 						<method name="setType" modifier="public"  return-type="void" />
-						<method name="getArgName" modifier="public"  return-type="String" />
 						<method name="setArgName" modifier="public"  return-type="void" />
+						<method name="getArgName" modifier="public"  return-type="String" />
 					</methods>
 				</class>
 				<class name="RelationShip">
@@ -423,12 +488,37 @@
 						<method name="setType" modifier="public"  return-type="void" />
 						<method name="getFirstC" modifier="public"  return-type="String" />
 						<method name="getSecondC" modifier="public"  return-type="String" />
-						<method name="setFirstC" modifier="public"  return-type="void" />
+						<method name="setSecondC" modifier="public"  return-type="void" />
+						<method name="getMaxVal" modifier="public"  return-type="String" />
 						<method name="getMinVal" modifier="public"  return-type="String" />
 						<method name="setMinVal" modifier="public"  return-type="void" />
 						<method name="setMaxVal" modifier="public"  return-type="void" />
-						<method name="getMaxVal" modifier="public"  return-type="String" />
-						<method name="setSecondC" modifier="public"  return-type="void" />
+						<method name="setFirstC" modifier="public"  return-type="void" />
+					</methods>
+				</class>
+				<class name="XmlPackageModel">
+					<attributes>
+						<attribute name="name" type="class java.lang.String" modifier="private"/>
+						<attribute name="classes" type="interface java.util.List" modifier="private"/>
+						<attribute name="interfaces" type="interface java.util.List" modifier="private"/>
+						<attribute name="enums" type="interface java.util.List" modifier="private"/>
+						<attribute name="annotations" type="interface java.util.List" modifier="private"/>
+					</attributes>
+					<constructors>
+						<constructor name="org.mql.java.models.XmlPackageModel" modifier="public"/>
+					</constructors>
+					<methods>
+						<method name="getName" modifier="public"  return-type="String" />
+						<method name="toString" modifier="public"  return-type="String" />
+						<method name="getInterfaces" modifier="public"  return-type="List" />
+						<method name="getClasses" modifier="public"  return-type="List" />
+						<method name="getAnnotations" modifier="public"  return-type="List" />
+						<method name="setName" modifier="public"  return-type="void" />
+						<method name="setClasses" modifier="public"  return-type="void" />
+						<method name="setInterfaces" modifier="public"  return-type="void" />
+						<method name="setEnums" modifier="public"  return-type="void" />
+						<method name="setAnnotations" modifier="public"  return-type="void" />
+						<method name="getEnums" modifier="public"  return-type="List" />
 					</methods>
 				</class>
 			</classes>
@@ -477,17 +567,17 @@
 						<method name="getPath" modifier="public"  return-type="String" />
 						<method name="getProjectPackagesAndSubPackagesPath" modifier="public"  return-type="List" />
 						<method name="getAbsolutePath" modifier="public"  return-type="String" />
+						<method name="getProjectSubPackages" modifier="public"  return-type="List" />
 						<method name="isProjectExist" modifier="public"  return-type="boolean" />
 						<method name="getPackagesTree" modifier="public"  return-type="List" />
-						<method name="getProjectName" modifier="public"  return-type="String" />
 						<method name="getPackageContent" modifier="public"  return-type="Vector" />
-						<method name="getFullProjectPath" modifier="public"  return-type="String" />
+						<method name="getProjectName" modifier="public"  return-type="String" />
 						<method name="getProjectPackages" modifier="public"  return-type="List" />
 						<method name="RecursivePackage" modifier="private"  return-type="void" />
+						<method name="setPath" modifier="public"  return-type="void" />
 						<method name="getProjectPath" modifier="public"  return-type="String" />
 						<method name="setProjectPath" modifier="public"  return-type="void" />
-						<method name="setPath" modifier="public"  return-type="void" />
-						<method name="getProjectSubPackages" modifier="public"  return-type="List" />
+						<method name="getFullProjectPath" modifier="public"  return-type="String" />
 					</methods>
 				</class>
 			</classes>
@@ -507,8 +597,8 @@
 						<method name="getRelations" modifier="public"  return-type="List" />
 						<method name="getAssociationModels" modifier="public"  return-type="List" />
 						<method name="setAssociationModels" modifier="public"  return-type="void" />
-						<method name="isInstanceOfClass" modifier="public"  return-type="AssociationModel" />
 						<method name="associationType" modifier="public"  return-type="boolean" />
+						<method name="isInstanceOfClass" modifier="public"  return-type="AssociationModel" />
 					</methods>
 				</class>
 				<class name="ImplementationRelation">
@@ -551,9 +641,50 @@
 				</class>
 			</classes>
 		</package>
+		<package name="org.mql.java.xml.dom">
+			<classes>
+				<class name="ProjectParser">
+					<attributes>
+						<attribute name="packages" type="interface java.util.List" modifier="private"/>
+					</attributes>
+					<constructors>
+						<constructor name="org.mql.java.xml.dom.ProjectParser" modifier="public"/>
+					</constructors>
+					<methods>
+						<method name="getAnnotations" modifier="private"  return-type="List" />
+						<method name="getPackages" modifier="public"  return-type="List" />
+						<method name="parse" modifier="public"  return-type="void" />
+						<method name="setPackages" modifier="public"  return-type="void" />
+						<method name="AllPackages" modifier="public"  return-type="void" />
+						<method name="AllRelationsShips" modifier="public"  return-type="void" />
+					</methods>
+				</class>
+				<class name="XMLNode">
+					<attributes>
+						<attribute name="node" type="interface org.w3c.dom.Node" modifier="private"/>
+					</attributes>
+					<constructors>
+						<constructor name="org.mql.java.xml.dom.XMLNode" modifier="public"/>
+						<constructor name="org.mql.java.xml.dom.XMLNode" modifier="public"/>
+					</constructors>
+					<methods>
+						<method name="name" modifier="public"  return-type="String" />
+						<method name="value" modifier="public"  return-type="String" />
+						<method name="print" modifier="public"  return-type="void" />
+						<method name="getAttributes" modifier="public"  return-type="NamedNodeMap" />
+						<method name="child" modifier="public"  return-type="XMLNode" />
+						<method name="children" modifier="public"  return-type="XMLNode[]" />
+						<method name="attribute" modifier="public"  return-type="String" />
+						<method name="intAttribute" modifier="public"  return-type="int" />
+						<method name="isElement" modifier="public"  return-type="boolean" />
+					</methods>
+				</class>
+			</classes>
+		</package>
 	</packages>
 	<relations>
 		<relation name="implementation" firstc="org.mql.java.annotations.Test" secondc="Annotation" minval="1" maxval="1" type="" />
+		<relation name="implementation" firstc="org.mql.java.annotations.TestTestTest" secondc="Annotation" minval="1" maxval="1" type="" />
 		<relation name="implementation" firstc="org.mql.java.main.TestClass" secondc="Test" minval="1" maxval="1" type="" />
 		<relation name="implementation" firstc="org.mql.java.main.TestClass" secondc="TestTest" minval="1" maxval="1" type="" />
 		<relation name="implementation" firstc="org.mql.java.reflection.ProjectExplorer$1" secondc="Comparator" minval="1" maxval="1" type="" />
@@ -592,15 +723,19 @@
 		<relation name="inheritance" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.main.Program" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.main.TestClass" secondc="org.mql.java.gestion.ClassGenerator" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.AnnotationContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.AssociationModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassAttribute" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassConstructor" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.EnumContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.InterfaceContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.PackageContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.PackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ParameterMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.RelationShip" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.XmlPackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.classparser.ClassParser" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.enums.Test" secondc="java.lang.Enum" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.gestion.ClassGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
@@ -610,15 +745,19 @@
 		<relation name="inheritance" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.main.Program" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.main.TestClass" secondc="org.mql.java.gestion.ClassGenerator" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.AnnotationContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.AssociationModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassAttribute" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassConstructor" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.EnumContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.InterfaceContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.PackageContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.PackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ParameterMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.RelationShip" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.XmlPackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.reflection.PackageExplorer" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.reflection.ProjectExplorer$1" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.reflection.ProjectExplorer" secondc="java.lang.Object" minval="1" maxval="1" type="" />
@@ -631,15 +770,19 @@
 		<relation name="inheritance" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.main.Program" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.main.TestClass" secondc="org.mql.java.gestion.ClassGenerator" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.AnnotationContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.AssociationModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassAttribute" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassConstructor" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ClassMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.EnumContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.InterfaceContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.PackageContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.PackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.ParameterMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.models.RelationShip" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.XmlPackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.reflection.PackageExplorer" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.reflection.ProjectExplorer$1" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.reflection.ProjectExplorer" secondc="java.lang.Object" minval="1" maxval="1" type="" />
@@ -647,6 +790,37 @@
 		<relation name="inheritance" firstc="org.mql.java.relations.ImplementationRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.relations.ImportRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="inheritance" firstc="org.mql.java.relations.InheritanceRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.classparser.ClassParser" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.enums.Test" secondc="java.lang.Enum" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.gestion.ClassGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.gestion.PackageGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.gestion.PersistenceXML" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.gestion.RelationGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.main.Program" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.main.TestClass" secondc="org.mql.java.gestion.ClassGenerator" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.AnnotationContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.AssociationModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.ClassAttribute" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.ClassConstructor" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.ClassContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.ClassMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.EnumContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.InterfaceContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.PackageContent" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.PackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.ParameterMethod" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.RelationShip" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.models.XmlPackageModel" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.reflection.PackageExplorer" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.reflection.ProjectExplorer$1" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.reflection.ProjectExplorer" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.relations.AssociationRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.relations.ImplementationRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.relations.ImportRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.relations.InheritanceRelation" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.xml.dom.ProjectParser" secondc="java.lang.Object" minval="1" maxval="1" type="" />
+		<relation name="inheritance" firstc="org.mql.java.xml.dom.XMLNode" secondc="java.lang.Object" minval="1" maxval="1" type="" />
 		<relation name="association" firstc="org.mql.java.classparser.ClassParser" secondc="org.mql.java.models.ClassAttribute" minval="1" maxval="n" type="bidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.classparser.ClassParser" secondc="org.mql.java.models.ClassMethod" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.classparser.ClassParser" secondc="org.mql.java.models.ClassMethod" minval="1" maxval="1" type="unidirectionnelle" />
@@ -673,6 +847,7 @@
 		<relation name="association" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="org.mql.java.relations.AssociationRelation" minval="1" maxval="1" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="org.mql.java.models.PackageModel" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.gestion.RelationShipsGenerator" secondc="org.mql.java.relations.ImportRelation" minval="1" maxval="1" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.AnnotationContent" secondc="org.mql.java.models.ClassMethod" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.AssociationModel" secondc="org.mql.java.models.ClassAttribute" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.ClassAttribute" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="n" type="bidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.ClassConstructor" secondc="org.mql.java.models.ParameterMethod" minval="1" maxval="n" type="unidirectionnelle" />
@@ -681,14 +856,28 @@
 		<relation name="association" firstc="org.mql.java.models.ClassContent" secondc="org.mql.java.models.ClassMethod" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.ClassContent" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.ClassMethod" secondc="org.mql.java.models.ParameterMethod" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.EnumContent" secondc="org.mql.java.models.ClassAttribute" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.EnumContent" secondc="org.mql.java.models.ClassConstructor" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.EnumContent" secondc="org.mql.java.models.ClassMethod" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.InterfaceContent" secondc="org.mql.java.models.ClassAttribute" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.InterfaceContent" secondc="org.mql.java.models.ClassMethod" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.PackageContent" secondc="org.mql.java.models.ClassContent" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.models.PackageContent" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.XmlPackageModel" secondc="org.mql.java.models.ClassContent" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.XmlPackageModel" secondc="org.mql.java.models.InterfaceContent" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.XmlPackageModel" secondc="org.mql.java.models.EnumContent" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.models.XmlPackageModel" secondc="org.mql.java.models.AnnotationContent" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.reflection.ProjectExplorer$1" secondc="org.mql.java.reflection.ProjectExplorer" minval="1" maxval="1" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.relations.AssociationRelation" secondc="org.mql.java.models.AssociationModel" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.relations.AssociationRelation" secondc="org.mql.java.models.RelationShip" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.relations.ImplementationRelation" secondc="org.mql.java.models.RelationShip" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.relations.ImportRelation" secondc="org.mql.java.models.RelationShip" minval="1" maxval="n" type="unidirectionnelle" />
 		<relation name="association" firstc="org.mql.java.relations.InheritanceRelation" secondc="org.mql.java.models.RelationShip" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="association" firstc="org.mql.java.xml.dom.ProjectParser" secondc="org.mql.java.models.XmlPackageModel" minval="1" maxval="n" type="unidirectionnelle" />
+		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.ElementType" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.Retention" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.RetentionPolicy" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.Target" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.ElementType" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.Retention" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.annotations" secondc="java.lang.annotation.RetentionPolicy" minval="1" maxval="1" type="" />
@@ -734,22 +923,35 @@
 		<relation name="import" firstc="org.mql.java.gestion" secondc="japa.parser.ast.ImportDeclaration" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.PackageGenerator" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.PersistenceXML" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.ClassContent" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.InterfaceContent" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.PackageContent" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.models.XmlPackageModel" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.xml.dom.ProjectParser" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.gestion.ClassGenerator" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.interfaces.Test" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.main" secondc="org.mql.java.interfaces.TestTest" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.models" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
-		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.List" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.models" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.reflection" secondc="java.io.File" minval="1" maxval="1" type="" />
@@ -772,5 +974,17 @@
 		<relation name="import" firstc="org.mql.java.relations" secondc="java.util.Vector" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.relations" secondc="org.mql.java.classparser.ClassParser" minval="1" maxval="1" type="" />
 		<relation name="import" firstc="org.mql.java.relations" secondc="org.mql.java.models.RelationShip" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="java.util.List" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="java.util.Vector" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="org.mql.java.models.AnnotationContent" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="org.mql.java.models.XmlPackageModel" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="java.io.IOException" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="java.util.Vector" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="javax.xml.parsers.DocumentBuilder" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="javax.xml.parsers.DocumentBuilderFactory" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="org.w3c.dom.Document" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="org.w3c.dom.NamedNodeMap" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="org.w3c.dom.Node" minval="1" maxval="1" type="" />
+		<relation name="import" firstc="org.mql.java.xml.dom" secondc="org.w3c.dom.NodeList" minval="1" maxval="1" type="" />
 	</relations>
 </project>
