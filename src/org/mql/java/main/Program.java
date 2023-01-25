@@ -25,24 +25,14 @@ public class Program {
 	
 	private void ex02() { 
 		ProjectParser projectParser = new ProjectParser("resource/project.xml") ; 
-		/*
+		 
 		for (XmlPackageModel pack : projectParser.getPackages()) {
 			System.out.println(pack);
 		}
-		*/
+		 
 		for (RelationShip r : projectParser.getRelationShips()) {
 			System.out.println(r);
 		}
-		
-		
-		/*
-		for (ClassContent c : projectParser.getClasses()) {
-			System.out.println(c);
-		}
-		*/
-		 
-		
-		
 		 
 	}
  
