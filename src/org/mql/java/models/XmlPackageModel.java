@@ -62,7 +62,5 @@ public class XmlPackageModel {
 		return "XmlPackageModel [name=" + name + ", interfaces=" + interfaces + ", enums=" + enums + ", annotations="
 				+ annotations + ", classes=" + classes + "]";
 	}
-	
-	
-	
+
 }

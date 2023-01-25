@@ -1,7 +1,8 @@
 package org.mql.java.main;
  
 import org.mql.java.gestion.PackageGenerator;
-import org.mql.java.gestion.PersistenceXML; 
+import org.mql.java.gestion.PersistenceXML;
+import org.mql.java.models.RelationShip;
 import org.mql.java.models.XmlPackageModel;
 import org.mql.java.xml.dom.ProjectParser;
  
@@ -24,11 +25,15 @@ public class Program {
 	
 	private void ex02() { 
 		ProjectParser projectParser = new ProjectParser("resource/project.xml") ; 
-		  
+		/*
 		for (XmlPackageModel pack : projectParser.getPackages()) {
 			System.out.println(pack);
 		}
-		 
+		*/
+		for (RelationShip r : projectParser.getRelationShips()) {
+			System.out.println(r);
+		}
+		
 		
 		/*
 		for (ClassContent c : projectParser.getClasses()) {

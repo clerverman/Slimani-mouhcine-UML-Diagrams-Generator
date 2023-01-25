@@ -10,18 +10,18 @@ import org.mql.java.models.ClassContent;
 import org.mql.java.models.ClassMethod;
 import org.mql.java.models.EnumContent;
 import org.mql.java.models.InterfaceContent;
+import org.mql.java.models.RelationShip;
 import org.mql.java.models.XmlPackageModel;
 
 public class ProjectParser {
 	private List<XmlPackageModel> packages;
-
+	private List<RelationShip> relationShips ; 
 	public ProjectParser(String source) {
 		parse(source);
 	}
 
 	public void parse(String source) {
-		XMLNode root = new XMLNode(source); // le chemin est relatif
-		// System.out.println(root.getAttributes().getNamedItem("name"));
+		XMLNode root = new XMLNode(source); // le chemin est relatif 
 		XMLNode[] children = root.children();
 		AllPackages(children[0]);
 		AllRelationsShips(children[1]);
@@ -153,7 +153,17 @@ public class ProjectParser {
 	}
 
 	public void AllRelationsShips(XMLNode relations) {
-		// System.out.println("Rels : "+relations.children().length);
+		relationShips = new Vector<RelationShip>() ; 
+		for (XMLNode relation : relations.children()) {
+			RelationShip r = new RelationShip();
+			r.setName(relation.attribute("name"));
+			r.setFirstC(relation.attribute("firstc"));
+			r.setSecondC(relation.attribute("secondc"));
+			r.setMaxVal(relation.attribute("maxval"));
+			r.setMinVal(relation.attribute("minval"));
+			r.setType(relation.attribute("type"));
+			relationShips.add(r) ; 
+		}
 	}
 
 	public List<XmlPackageModel> getPackages() {
@@ -163,5 +173,14 @@ public class ProjectParser {
 	public void setPackages(List<XmlPackageModel> packages) {
 		this.packages = packages;
 	}
+
+	public List<RelationShip> getRelationShips() {
+		return relationShips;
+	}
+
+	public void setRelationShips(List<RelationShip> relationShips) {
+		this.relationShips = relationShips;
+	}
+	
 
 }
