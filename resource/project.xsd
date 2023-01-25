@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- Les méthodes -->
+    <xsd:element name="method" type="methodType"></xsd:element>
+    <xsd:element name="methods" type="methodsType"></xsd:element>
+    <xsd:complexType name="methodType">
+        <xsd:attribute name="name" type="xsd:string" use="required" ></xsd:attribute>
+        <xsd:attribute name="modifier" type="xsd:string" use="required" ></xsd:attribute>
+        <xsd:attribute name="return-type" type="xsd:string" use="required" ></xsd:attribute>
+    </xsd:complexType>
+    <xsd:complexType name="methodsType">
+        <xsd:sequence>
+            <xsd:element ref="method" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- Les attributs : <attribute name="myClass" type="class java.lang.Class" modifier="private"/> -->
+    <xsd:element name="attribute" type="attributeType"></xsd:element>
+    <xsd:element name="attributes" type="attributesType"></xsd:element>
+    <xsd:complexType name="attributeType">
+        <xsd:attribute name="name" type="xsd:string" use="required" ></xsd:attribute>
+        <xsd:attribute name="modifier" type="modifierType" use="required" ></xsd:attribute>
+        <xsd:attribute name="type" type="xsd:string" use="required" ></xsd:attribute>
+    </xsd:complexType>
+    <xsd:simpleType name="modifierType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="public|protected|private"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="attributesType">
+        <xsd:sequence>
+            <xsd:element ref="attribute" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- Les constructeurs -->
+    
+    <xsd:element name="constructor" type="constructorType"></xsd:element>
+    <xsd:element name="constructors" type="constructorsType"></xsd:element>
+    <xsd:complexType name="constructorType">
+        <xsd:attribute name="name" type="xsd:string" use="required" ></xsd:attribute>
+        <xsd:attribute name="modifier" type="conModifierType" use="required" ></xsd:attribute> 
+    </xsd:complexType>
+    <xsd:simpleType name="conModifierType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="public"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="constructorsType">
+        <xsd:sequence>
+            <xsd:element ref="constructor" minOccurs="1" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- Les classes -->
+    <xsd:element name="class" type="classType"></xsd:element>
+    <xsd:complexType name="classType">
+        <xsd:sequence>
+            <xsd:element ref="attributes"></xsd:element>
+            <xsd:element ref="constructors"></xsd:element>
+            <xsd:element ref="methods"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+    </xsd:complexType>
+    <xsd:element name="classes" type="classesType"></xsd:element>
+    <xsd:complexType name="classesType">
+        <xsd:sequence>
+            <xsd:element ref="class"></xsd:element> 
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- les annotations -->
+    <xsd:element name="annotation" type="annotationType"></xsd:element>
+    <xsd:complexType name="annotationType">
+        <xsd:sequence> 
+            <xsd:element ref="methods"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+    </xsd:complexType>
+    <xsd:element name="annotations" type="annotationsType"></xsd:element>
+    <xsd:complexType name="annotationsType">
+        <xsd:sequence>
+            <xsd:element ref="annotation"></xsd:element> 
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
